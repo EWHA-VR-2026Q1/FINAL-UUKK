@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: da410e85ad8814cdb82bdd83e34c2e8f
+  productGUID: 09456c29d25d848b882e83c0b1689703
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Final
+  productName: Final_project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -878,14 +878,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Final
+  metroPackageName: Final_project
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Final
+  metroApplicationDescription: Final_project
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -955,10 +955,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: ab65ab0a-444a-4a8b-a11a-348a779fb21e
+  cloudProjectId: f6fe2ed3-cf21-41a2-8954-ef57e68aa944
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Final
+  projectName: Final_project
   organizationId: ketchupmaster123
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
