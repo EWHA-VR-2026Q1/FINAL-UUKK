@@ -41,8 +41,8 @@ public class GoalHUD : MonoBehaviour
     public float fadeInDuration = 1.0f;
     [Tooltip("페이드 아웃 시간(초).")]
     public float fadeOutDuration = 1.0f;
-    [Tooltip("표시 후 자동으로 사라지기까지 시간(초). 0이면 계속 표시.")]
-    public float autoHideAfter = 6.0f;
+    [Tooltip("표시 후 자동으로 사라지기까지 시간(초). 0이면 계속 표시(기본).")]
+    public float autoHideAfter = 0f;
 
     private Coroutine activeRoutine;
 
