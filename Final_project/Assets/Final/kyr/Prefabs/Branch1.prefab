@@ -595,6 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9216052595111588232}
   - component: {fileID: 4611518034199894726}
+  - component: {fileID: 2002289797525907525}
   m_Layer: 0
   m_Name: Branch1
   m_TagString: Untagged
@@ -657,3 +658,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 4779653753094640987}
   m_Enabled: 1
+--- !u!114 &2002289797525907525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6113680983153237934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202f7e95102dde64d955fe6876f3dd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placedVisual: {fileID: 0}
+  targetZoneTag: TerrariumInside
