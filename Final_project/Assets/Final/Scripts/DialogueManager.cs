@@ -20,6 +20,8 @@ public class DialogueManager : MonoBehaviour
 
     private bool isTyping = false;
 
+    public StageClearTrigger stageClear;
+
     void Start()
     {
         if (dialoguePanel != null)
@@ -106,5 +108,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     Debug.Log("대화 종료");
+    stageClear.ClearStage();
 }
 }
