@@ -9,6 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Safe Zone.unity
     guid: 2d8700ebab0506148ac5619cb2b22329
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Entry.unity
+=======
+    path: Assets/Scenes_ym/Scene1_meeting.unity
+>>>>>>> Stashed changes
     guid: 05bfcbaa50c35964da0c92d6cdca62d9
   m_configObjects: {}
