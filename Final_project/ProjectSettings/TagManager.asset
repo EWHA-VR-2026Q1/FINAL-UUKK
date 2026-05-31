@@ -34,8 +34,11 @@ TagManager:
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
   - Food
+<<<<<<< HEAD
   - Spider
   - TempBoxInside
+=======
+>>>>>>> 4ca3a26 (Add: Scene07, Scene08)
   layers:
   - Default
   - TransparentFX
