@@ -3,42 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Rag
-  - TerrariumInside
-  - ClimbableCliff
-  - ClimbableLadder
-  - QDSUISection
-  - QDSUIAccentColor
-  - QDSUISecondaryButton
-  - QDSUIPrimaryButton
-  - QDSUITextSecondaryInvertedColor
-  - QDSUITextInvertedColor
-  - QDSUIToggleButton
-  - QDSUIIcon
-  - QDSUITextSecondaryColor
-  - QDSUIDestructiveButton
-  - QDSUISharedThemeColor
-  - QDSUIBorderlessButton
-  - QDSUIToggleBorderlessButton
-  - QDSUIBackplateGradient
-  - QDSUITooltip
-  - QDSUIBackplate
-  - QDSUIToggleSwitch
-  - Locomotion
-  - LocoButton
-  - LocoText
-  - PassThroughButton
-  - PassThrough
-  - QDSUITextInputField
-  - SamplesInfoPanel
-  - QDSUIToggleCheckboxRadio
-  - Food
-<<<<<<< HEAD
-  - Spider
-  - TempBoxInside
-=======
->>>>>>> 4ca3a26 (Add: Scene07, Scene08)
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -46,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Grabbable
+  - 
   - 
   - 
   - 
