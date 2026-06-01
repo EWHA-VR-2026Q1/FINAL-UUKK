@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 2
-  sceneName: Scene2
+  sceneName: Step2
 --- !u!135 &303798927
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 8
-  sceneName: Scene8_
+  sceneName: Step8
 --- !u!135 &513092294
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 7
-  sceneName: Scene7_
+  sceneName: Step7
 --- !u!135 &861994326
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1751,7 +1751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 4
-  sceneName: Scene4
+  sceneName: Step4
 --- !u!135 &1239538390
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2286,7 +2286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 3
-  sceneName: Scene3
+  sceneName: Step3
 --- !u!135 &1506008670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 6
-  sceneName: Scene6
+  sceneName: Step6
 --- !u!135 &1572432666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2612,7 +2612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 1
-  sceneName: Scene1_meeting
+  sceneName: Step1
 --- !u!1001 &1873334408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2979,7 +2979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 5
-  sceneName: Scene5_
+  sceneName: Step5
 --- !u!135 &2115312858
 SphereCollider:
   m_ObjectHideFlags: 0

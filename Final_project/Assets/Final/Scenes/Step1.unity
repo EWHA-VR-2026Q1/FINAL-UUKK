@@ -823,6 +823,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_text
+      value: "\uAC70\uBBF8 \uCE5C\uAD6C\uC758 \uC124\uBA85\uC744 \uBAA8\uB450 \uB4E4\uC5B4\uC8FC\uC138\uC694."
+      objectReference: {fileID: 0}
     - target: {fileID: 5880846269368874102, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_Name
       value: VRSystem_Final
