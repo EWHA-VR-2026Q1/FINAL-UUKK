@@ -1128,11 +1128,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredFoodCount: 1
   spiderAnimator: {fileID: 165336966}
-<<<<<<< HEAD:Final_project/Assets/Final/Scenes/Step6.unity
-  goalText: {fileID: 1275135577}
-  completionPanel: {fileID: 167468816}
-  completionText: {fileID: 26739212}
+  goalHUD: {fileID: 565970713}
+  completionPanel: {fileID: 0}
+  completionText: {fileID: 0}
   nextSceneName: Scene09_CleanSpiderHouse (XR)
+  nextStageNumber: 8
 --- !u!1001 &931275006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1190,13 +1190,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34789de58c84a4b35bdec6938214b65d, type: 3}
-=======
-  goalHUD: {fileID: 565970713}
-  completionPanel: {fileID: 0}
-  completionText: {fileID: 0}
-  nextSceneName: Scene09_CleanSpiderHouse (OVR)
-  nextStageNumber: 7
->>>>>>> 0d4f107 (Fix: hud 수정):Final_project/Assets/Final/Scenes/Scene08_FeedScarySpider (OVR).unity
 --- !u!1001 &992961482
 PrefabInstance:
   m_ObjectHideFlags: 0
