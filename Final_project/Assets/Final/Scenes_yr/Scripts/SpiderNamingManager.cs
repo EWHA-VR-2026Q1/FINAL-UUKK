@@ -10,52 +10,61 @@ public class SpiderNamingManager : MonoBehaviour
     public Button btnVenom;
     public TextMeshProUGUI spiderNameDisplay;
     public GameObject namingPanel;
-    public TextMeshProUGUI goalText;
 
-    [Header("¼±ÅÃ °­Á¶¿ë ÀÌ¹ÌÁö")]
+    [Header("HUD (VR Final > HUD ì•ˆì˜ GoalHUD ì»´í¬ë„ŒíŠ¸ ì—°ê²°)")]
+    public GoalHUD goalHUD;
+
+    [Header("ë²„íŠ¼ ì´ë¯¸ì§€")]
     public Image pipButtonImage;
     public Image venomButtonImage;
 
-    [Header("°Å¹Ì")]
+    [Header("ì• ë‹ˆë©”ì´í„°")]
     public Animator spiderAnimator;
 
-    [Header("´ÙÀ½ ¾À")]
-    public string nextSceneName = "Scene07_FeedCuteSpider";
+    [Header("ë‹¤ìŒ ì”¬ ì´ë¦„ (Build Settings ê¸°ì¤€)")]
+    public string nextSceneName = "Step05_FeedCuteSpider (OVR)";
 
-    // ¹öÆ° »ö»ó
-    private Color normalColor = new Color(0.24f, 0.24f, 0.31f);
+    [Header("í•´ê¸ˆí•  ë‹¤ìŒ ìŠ¤í…Œì´ì§€ ë²ˆí˜¸ (Inspectorì—ì„œ ì§ì ‘ ì…ë ¥)")]
+    [SerializeField] private int nextStageIndex = 7;
+
+    private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
+    private bool  nameConfirmed = false;
 
     void Start()
     {
-        btnPip.onClick.AddListener(() => OnSelectName("Pip"));
+        btnPip.onClick.AddListener(()   => OnSelectName("Pip"));
         btnVenom.onClick.AddListener(() => OnSelectName("Venom"));
         spiderNameDisplay.gameObject.SetActive(false);
+
+        if (goalHUD != null)
+            goalHUD.ShowGoal("ê±°ë¯¸ì˜ ì´ë¦„ì„ ì§€ì–´ì£¼ì„¸ìš”!");
     }
 
     void OnSelectName(string spiderName)
     {
-        // ¹öÆ° »ö °­Á¶
-        pipButtonImage.color =
-            spiderName == "Pip" ? selectedColor : normalColor;
-        venomButtonImage.color =
-            spiderName == "Venom" ? selectedColor : normalColor;
+        if (nameConfirmed) return;
+        nameConfirmed = true;
 
-        // ÀÌ¸§ ÀúÀå
+        pipButtonImage.color   = spiderName == "Pip"   ? selectedColor : normalColor;
+        venomButtonImage.color = spiderName == "Venom" ? selectedColor : normalColor;
+
         PlayerPrefs.SetString("SpiderName", spiderName);
         PlayerPrefs.Save();
 
-        // UI ÀüÈ¯
         namingPanel.SetActive(false);
         spiderNameDisplay.gameObject.SetActive(true);
-        spiderNameDisplay.text = "\"" + spiderName + "\" ÁÁÀº ÀÌ¸§ÀÌ¿¡¿ä!";
-        goalText.text = spiderName + "¿¡°Ô ÀÌ¸§À» Áö¾îÁá¾î¿ä :)";
+        spiderNameDisplay.text = "\"" + spiderName + "\" ì¢‹ì€ ì´ë¦„ì´ì—ìš”!";
 
-        // °Å¹Ì ¹İÀÀ
+        if (goalHUD != null)
+            goalHUD.ShowGoal(spiderName + "(ì´)ë¼ëŠ” ì´ë¦„ì„ ì§€ì–´ì¤¬ì–´ìš” :)");
+
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");
 
-        Invoke("LoadNextScene", 3.0f);
+        ProgressManager.Instance.UnlockStage(nextStageIndex);
+
+        Invoke(nameof(LoadNextScene), 3.0f);
     }
 
     void LoadNextScene()
