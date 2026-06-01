@@ -121,6 +121,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8555353651263891806}
     m_Modifications:
+    - target: {fileID: 1240878415373081354, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
+      propertyPath: targetSceneName
+      value: Step8
+      objectReference: {fileID: 0}
     - target: {fileID: 1296120310130282120, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
       propertyPath: m_Name
       value: Player_OVRInput_Parts
@@ -153,6 +157,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5983194320286109962, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
+      propertyPath: targetSceneName
+      value: Step9
+      objectReference: {fileID: 0}
     - target: {fileID: 6522338659871291927, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
       propertyPath: RightHand
       value: 
@@ -163,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6522338659871291927, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
       propertyPath: GrabLayer.m_Bits
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9089865444784451095, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
       propertyPath: m_LocalPosition.x

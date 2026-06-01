@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 6
-  targetSceneName: 
+  targetSceneName: Step6
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 5
-  targetSceneName: 
+  targetSceneName: Step5
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 4
-  targetSceneName: 
+  targetSceneName: Step4
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -2364,7 +2364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 1
-  targetSceneName: 
+  targetSceneName: Step1
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 2
-  targetSceneName: 
+  targetSceneName: Step2
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -2764,7 +2764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 7
-  targetSceneName: 
+  targetSceneName: Step7
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
@@ -3146,7 +3146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageNumber: 3
-  targetSceneName: 
+  targetSceneName: Step3
   background: {fileID: 0}
   label: {fileID: 0}
   lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
