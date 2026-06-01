@@ -49,8 +49,23 @@ public class GoalHUD : MonoBehaviour
     void Awake()
     {
         if (canvasGroup == null) canvasGroup = GetComponentInChildren<CanvasGroup>();
-        if (goalText == null) goalText = GetComponentInChildren<TextMeshProUGUI>();
+        if (goalText == null) goalText = FindGoalText();
         if (canvasGroup != null) canvasGroup.alpha = 0f;
+    }
+
+    private TextMeshProUGUI FindGoalText()
+    {
+        Transform goalPanel = transform.Find("Canvas/GoalPanel");
+        if (goalPanel != null)
+        {
+            TextMeshProUGUI panelText = goalPanel.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (panelText != null)
+            {
+                return panelText;
+            }
+        }
+
+        return GetComponentInChildren<TextMeshProUGUI>(true);
     }
 
     void Start()

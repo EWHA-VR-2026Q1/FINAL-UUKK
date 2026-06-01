@@ -417,9 +417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_text
-      value: "\uAC70\uBBF8 \uADF9\uBCF5 \uC2DC\uBBAC\uB808\uC774\uC158\uC5D0 \uC624\uC2E0
-        \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.\n\uC124\uBA85\uC774 \uB05D\uB098\uBA74
-        \uBB38\uC744 \uD074\uB9AD\uD558\uC5EC \uB2E4\uC74C\uC73C\uB85C \uB118\uC5B4\uAC00\uC138\uC694."
+      value: "Welcome to the Spider Interaction Simulator.\nClick the door to start."
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_fontSize
@@ -495,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &939799331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -608,7 +606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1101788364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,22 +622,12 @@ MonoBehaviour:
   dialogueText: {fileID: 1314093291}
   dialoguePanel: {fileID: 939799330}
   dialogues:
-  - "\uC548\uB155\uD558\uC138\uC694. \uC815\uC2E0\uC774 \uB4DC\uC2DC\uB098\uC694?"
-  - "<\uAC70\uBBF8 \uCE5C\uD654 \uD504\uB85C\uC81D\uD2B8> \uC5D0 \uCC38\uC5EC\uD558\uC2E0
-    \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4."
-  - "\uD604\uC2E4\uC5D0\uC11C \uAC70\uBBF8\uB97C \uBB34\uC11C\uC6CC\uD558\uC9C0 \uC54A\uC744
-    \uC218 \uC788\uB3C4\uB85D"
-  - "\uB2F9\uC2E0\uC744 \uB3C4\uC640\uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
-  - "\uC548\uC2EC\uD558\uC138\uC694!"
-  - "\uBC14\uB85C \uC9C4\uC9DC \uAC70\uBBF8\uAC00 \uB4DD\uC2E4\uAC70\uB9AC\uB294
-    \uBC29\uC5D0 \uB358\uC9C0\uC9C4 \uC54A\uC744 \uD14C\uB2C8\uAE4C\uC694."
-  - "\uC9C0\uAE08\uBD80\uD130 \uC21C\uCC28\uC801\uC73C\uB85C, \uB2F9\uC2E0\uC740
-    \uAC70\uBBF8\uC640 \uB9C8\uC8FC\uD558\uAC8C \uB429\uB2C8\uB2E4."
-  - "\uBB34\uC5C7\uC744 \uD574\uC57C \uD558\uB294\uC9C0\uB294 \uB4E4\uC5B4\uAC00\uBA74
-    \uC54C \uC218 \uC788\uC744 \uAC70\uC608\uC694."
-  - "\uB108\uBB34 \uBB34\uC11C\uC6B0\uBA74 esc\uB85C \uC7A0\uC2DC \uB3C4\uB9DD\uCCD0
-    \uB098\uC624\uC2DC\uAE38!"
-  - "\uADF8\uB7FC, \uD589\uC6B4\uC744 \uBE55\uB2C8\uB2E4."
+  - "Hello. Can you hear me?"
+  - "Welcome to the Spider Interaction Simulator."
+  - "This experience will help you get used to spiders step by step."
+  - "Do not worry. We will not throw you into a room full of spiders."
+  - "You can take a break in the safezone whenever you need."
+  - "When you are ready, press the Stage 1 button to begin."
   nextStage: 1
   typingSpeed: 0.05
 --- !u!4 &1101788365
@@ -938,8 +926,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
-  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1013,74 +1001,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314093289}
   m_CullTransparentMesh: 1
---- !u!1 &1334114222
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334114225}
-  - component: {fileID: 1334114224}
-  - component: {fileID: 1334114223}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1334114223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334114222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1334114224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334114222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1334114225
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334114222}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531384774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,7 +1680,6 @@ SceneRoots:
   - {fileID: 1195703453}
   - {fileID: 1033562696}
   - {fileID: 1883258525}
-  - {fileID: 1334114225}
   - {fileID: 1101788365}
   - {fileID: 1175155139}
   - {fileID: 1531384776}

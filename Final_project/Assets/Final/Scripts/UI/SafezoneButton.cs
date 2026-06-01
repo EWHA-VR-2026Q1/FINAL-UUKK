@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Safezone(또는 임의의 다른) 씬으로 이동시키는 버튼 핸들러.
@@ -24,27 +25,50 @@ public class SafezoneButton : MonoBehaviour
     [Tooltip("로드 직전 콘솔에 로그를 남길지 여부. 디버깅용.")]
     public bool logBeforeLoad = true;
 
+    private RectTransform rectTransform;
+    private Button button;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+        button = GetComponent<Button>();
+    }
+
+    private void Update()
+    {
+        if (button != null && !button.interactable)
+        {
+            return;
+        }
+
+        if (VRPointerClickUtility.WasClickPressed() &&
+            VRPointerClickUtility.IsPointingAt(rectTransform))
+        {
+            LoadSafezone();
+        }
+    }
+
     /// <summary>Button의 OnClick에 이 함수를 연결한다.</summary>
     public void LoadSafezone()
     {
         if (string.IsNullOrWhiteSpace(safezoneSceneName))
         {
-            Debug.LogWarning("[SafezoneButton] 씬 이름이 비어있음. Inspector에서 설정해주세요.", this);
+            Debug.LogWarning("[SafezoneButton] Scene name is empty. Set it in the Inspector.", this);
             return;
         }
 
         if (!Application.CanStreamedLevelBeLoaded(safezoneSceneName))
         {
             Debug.LogError(
-                $"[SafezoneButton] '{safezoneSceneName}' 씬을 찾을 수 없음.\n" +
-                "→ File → Build Settings 에서 해당 씬을 'Scenes In Build' 목록에 추가했는지 확인.\n" +
-                "→ 씬 이름의 대소문자가 정확히 일치하는지 확인.",
+                $"[SafezoneButton] Could not find scene '{safezoneSceneName}'.\n" +
+                "Check that it is listed in File > Build Settings > Scenes In Build.\n" +
+                "Also check that the scene name matches exactly.",
                 this);
             return;
         }
 
         if (logBeforeLoad)
-            Debug.Log($"[SafezoneButton] 씬 이동: {safezoneSceneName}", this);
+            Debug.Log($"[SafezoneButton] Loading scene: {safezoneSceneName}", this);
 
         SceneManager.LoadScene(safezoneSceneName);
     }

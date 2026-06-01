@@ -57,12 +57,12 @@ public class Scene07_Manager : MonoBehaviour
 
     void Start()
     {
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
+        string spiderName = PlayerPrefs.GetString("SpiderName", "Spider");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(spiderName + "의 집을 새로 꾸며 주세요!");
+            goalHUD.ShowGoal("Set up " + spiderName + "'s new home.");
 
-        SetSubText(spiderName + "를 임시 박스로 옮겨주세요.");
+        SetSubText("Move " + spiderName + " into the temp box.");
 
         // PlaceableItem에 콜백 등록
         RegisterPlaceCallback(soilItem);
@@ -89,8 +89,7 @@ public class Scene07_Manager : MonoBehaviour
         if (spiderMoved) return;
         spiderMoved = true;
 
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
-        SetSubText("행주로 거미집을 닦아주세요.");
+        SetSubText("Clean the spider house with the rag.");
 
         CheckAllConditions();
     }
@@ -99,9 +98,8 @@ public class Scene07_Manager : MonoBehaviour
     public void OnDecorateItemPlaced()
     {
         decorateCount++;
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
-        SetSubText($"아이템 배치: {decorateCount} / 3");
-        Debug.Log($"[Scene07] 아이템 배치 완료: {decorateCount}/3");
+        SetSubText($"Items placed: {decorateCount} / 3");
+        Debug.Log($"[Scene07] Item placed: {decorateCount}/3");
 
         CheckAllConditions();
     }
@@ -136,8 +134,7 @@ public class Scene07_Manager : MonoBehaviour
         if (cleaningConfirmed) return;
         cleaningConfirmed = true;
 
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
-        SetSubText("토양, 나무, 이끼를 거미집 안에 넣어주세요.");
+        SetSubText("Place the soil, branch, and moss in the spider house.");
 
         CheckAllConditions();
     }
@@ -154,11 +151,11 @@ public class Scene07_Manager : MonoBehaviour
         if (!AreAllConditionsMet()) return;
 
         // 모든 조건 충족 → 임시 박스 클릭 가능 상태로 전환
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
-        SetSubText("모든 준비 완료! 임시 박스를 클릭하세요.");
+        string spiderName = PlayerPrefs.GetString("SpiderName", "Spider");
+        SetSubText("Everything is ready. Click the temp box.");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal("임시 박스를 눌러 " + spiderName + "를 돌려보내세요!");
+            goalHUD.ShowGoal("Click the temp box to return " + spiderName + ".");
 
         if (tempBoxClickable != null)
             tempBoxClickable.EnableClick();
@@ -168,12 +165,12 @@ public class Scene07_Manager : MonoBehaviour
     {
         isCleared = true;
 
-        string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
+        string spiderName = PlayerPrefs.GetString("SpiderName", "Spider");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(spiderName + "의 새 집이 완성되었어요!");
+            goalHUD.ShowGoal(spiderName + "'s new home is ready!");
 
-        SetSubText("잘 했어요!");
+        SetSubText("Great job!");
 
         // Stage 7 클리어 → Stage 8 해금
         ProgressManager.Instance.UnlockStage(8);
@@ -189,9 +186,9 @@ public class Scene07_Manager : MonoBehaviour
     string GetRemainingHint()
     {
         bool cleaned = terrariumCleaner != null && terrariumCleaner.isCleaned;
-        if (!spiderMoved) return "먼저 거미를 임시 박스로 옮겨주세요.";
-        if (!cleaned) return "행주로 거미집을 닦아야 해요.";
-        if (decorateCount < 3) return $"아이템이 아직 부족해요 ({decorateCount}/3).";
+        if (!spiderMoved) return "Move the spider into the temp box first.";
+        if (!cleaned) return "Clean the spider house with the rag.";
+        if (decorateCount < 3) return $"More items are needed ({decorateCount}/3).";
         return "";
     }
 

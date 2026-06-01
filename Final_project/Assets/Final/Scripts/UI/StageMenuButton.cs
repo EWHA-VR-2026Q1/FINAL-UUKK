@@ -42,8 +42,12 @@ public class StageMenuButton : MonoBehaviour
     private State currentState = State.Available;
     public State CurrentState => currentState;
 
+    private RectTransform rectTransform;
+
     void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+
         if (background == null) background = GetComponent<Image>();
         if (label == null) label = GetComponentInChildren<TextMeshProUGUI>();
 
@@ -54,6 +58,15 @@ public class StageMenuButton : MonoBehaviour
     void Start()
     {
         ApplyStateColor();
+    }
+
+    private void Update()
+    {
+        if (VRPointerClickUtility.WasClickPressed() &&
+            VRPointerClickUtility.IsPointingAt(rectTransform))
+        {
+            OnClick();
+        }
     }
 
     /// <summary>
@@ -73,19 +86,19 @@ public class StageMenuButton : MonoBehaviour
     {
         if (currentState == State.Locked)
         {
-            Debug.Log($"[StageMenuButton] Stage {stageNumber} 은 아직 잠겨있음.");
+            Debug.Log($"[StageMenuButton] Stage {stageNumber} is still locked.");
             return;
         }
 
         if (string.IsNullOrWhiteSpace(targetSceneName))
         {
-            Debug.LogWarning($"[StageMenuButton] Stage {stageNumber}: targetSceneName 이 비어있음. Inspector에서 설정 필요.", this);
+            Debug.LogWarning($"[StageMenuButton] Stage {stageNumber}: targetSceneName is empty. Set it in the Inspector.", this);
             return;
         }
 
         if (!Application.CanStreamedLevelBeLoaded(targetSceneName))
         {
-            Debug.LogError($"[StageMenuButton] '{targetSceneName}' 씬을 찾을 수 없음. Build Settings에 등록됐는지 확인.", this);
+            Debug.LogError($"[StageMenuButton] Could not find scene '{targetSceneName}'. Check Build Settings.", this);
             return;
         }
 

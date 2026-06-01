@@ -56,7 +56,8 @@ public class EX_OVRInput_Move : MonoBehaviour
 
         bool sprint = OVRInput.Get(OVRInput.RawButton.LThumbstick);
 
-        bool jump = OVRInput.GetDown(OVRInput.RawButton.A);
+        bool jump = !DialogueManager.IsDialogueActive &&
+            OVRInput.GetDown(OVRInput.RawButton.A);
 
         Vector3 forward = CenterEye.forward;
         Vector3 right = CenterEye.right;
@@ -90,7 +91,8 @@ public class EX_OVRInput_Move : MonoBehaviour
     {
         Vector2 move = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
 
-        bool jump = OVRInput.GetDown(OVRInput.RawButton.A);
+        bool jump = !DialogueManager.IsDialogueActive &&
+            OVRInput.GetDown(OVRInput.RawButton.A);
 
         velocity.x = 0;
         velocity.z = 0;

@@ -34,7 +34,7 @@ public class TempBoxClickable : MonoBehaviour
         if (clickableIndicator != null)
             clickableIndicator.SetActive(true);
 
-        Debug.Log("[TempBox] 클릭 가능 상태가 되었습니다.");
+        Debug.Log("[TempBox] Click is now enabled.");
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class TempBoxClickable : MonoBehaviour
         if (clickableIndicator != null)
             clickableIndicator.SetActive(false);
 
-        Debug.Log("[TempBox] 임시 박스 클릭! 클리어 처리 중...");
+        Debug.Log("[TempBox] Temp box clicked. Clearing stage...");
 
         if (sceneManager != null)
             sceneManager.OnTempBoxClicked();

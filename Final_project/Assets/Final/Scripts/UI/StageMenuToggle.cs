@@ -23,11 +23,24 @@ public class StageMenuToggle : MonoBehaviour
     [Tooltip("Inspector / 콘솔에 동작 로그를 출력. 디버깅용.")]
     public bool verboseLog = true;
 
+    private RectTransform rectTransform;
+
     private void Awake()
     {
+        rectTransform = GetComponent<RectTransform>();
+
         Button button = GetComponent<Button>();
         if (button != null)
             button.onClick.AddListener(Open);
+    }
+
+    private void Update()
+    {
+        if (VRPointerClickUtility.WasClickPressed() &&
+            VRPointerClickUtility.IsPointingAt(rectTransform))
+        {
+            Open();
+        }
     }
 
     void Start()
@@ -36,9 +49,9 @@ public class StageMenuToggle : MonoBehaviour
 
         if (menuToToggle == null)
         {
-            Debug.LogError("[StageMenuToggle] menuToToggle 자동 탐색 실패. " +
-                "transform.root 자식 중에 'StageMenu' 이름인 GameObject가 없거나, " +
-                "Inspector에서 직접 할당이 필요함.", this);
+            Debug.LogError("[StageMenuToggle] Could not auto-find menuToToggle. " +
+                "There is no child named 'StageMenu' under transform.root, " +
+                "or it must be assigned manually in the Inspector.", this);
             return;
         }
 
@@ -96,7 +109,7 @@ public class StageMenuToggle : MonoBehaviour
             {
                 menuToToggle = child.gameObject;
                 if (verboseLog)
-                    Debug.Log($"[StageMenuToggle] menuToToggle 자동 탐색 성공: {child.GetInstanceID()}", this);
+                    Debug.Log($"[StageMenuToggle] Auto-found menuToToggle: {child.GetInstanceID()}", this);
                 return;
             }
         }
