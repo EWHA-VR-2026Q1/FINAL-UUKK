@@ -21,11 +21,18 @@ public class SpiderNamingManager : MonoBehaviour
     [Header("애니메이터")]
     public Animator spiderAnimator;
 
+<<<<<<< HEAD
     // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
     public string nextSceneName = "Scene07_FeedCuteSpider (OVR)";
 
     private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
+=======
+    [Header("다음 씬")]
+    public string nextSceneName = "Scene07_FeedCuteSpider";
+
+    private Color normalColor = new Color(0.24f, 0.24f, 0.31f);
+>>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
 
     private bool nameConfirmed = false;
@@ -42,10 +49,14 @@ public class SpiderNamingManager : MonoBehaviour
 
     void OnSelectName(string spiderName)
     {
+<<<<<<< HEAD
         if (nameConfirmed) return;   // 중복 호출 방지
         nameConfirmed = true;
 
         pipButtonImage.color  = spiderName == "Pip"   ? selectedColor : normalColor;
+=======
+        pipButtonImage.color = spiderName == "Pip" ? selectedColor : normalColor;
+>>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
         venomButtonImage.color = spiderName == "Venom" ? selectedColor : normalColor;
 
         PlayerPrefs.SetString("SpiderName", spiderName);
@@ -56,13 +67,22 @@ public class SpiderNamingManager : MonoBehaviour
         spiderNameDisplay.text = "\"" + spiderName + "\" 좋은 이름이에요!";
 
         if (goalHUD != null)
+<<<<<<< HEAD
             goalHUD.ShowGoal(spiderName + "(이)라는 이름을 지어줬어요 :)");
+=======
+            goalHUD.ShowGoal(spiderName + "라는 이름을 지어줬어요 :)");
+>>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
 
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");
 
+<<<<<<< HEAD
         // Scene06 클리어 → Stage 7 해금
         ProgressManager.Instance.UnlockStage(7);
+=======
+        // Stage 4 클리어 → Stage 5 해금
+        ProgressManager.Instance.UnlockStage(5);
+>>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
 
         Invoke(nameof(LoadNextScene), 3.0f);
     }
