@@ -3,11 +3,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Step5 씬 — 귀여운 거미 먹이 주기 클리어 매니저.
-/// FoodZoneTrigger_OVR 의 feedingManager 필드에 이 컴포넌트를 연결하세요.
-/// 먹이(Tag="Food") → 거미집 트리거 진입 → OnFoodPlaced() → UnlockStage(nextStageNumber) → Step6 로드
+/// Step6 씬 — 무서운 거미 먹이 주기 클리어 매니저.
+/// FoodZoneTrigger_OVR_08 의 feedingManager 필드에 이 컴포넌트를 연결하세요.
+/// 먹이(Tag="Food") → 거미집 트리거 진입 → OnFoodPlaced() → UnlockStage(nextStageNumber) → Step7 로드
 /// </summary>
-public class FeedingManager_Scene07 : MonoBehaviour
+public class FeedingManager_Scene08 : MonoBehaviour
 {
     [Header("필요한 먹이 개수")]
     public int             requiredFoodCount = 1;
@@ -23,25 +23,24 @@ public class FeedingManager_Scene07 : MonoBehaviour
     public TextMeshProUGUI completionText;
 
     [Header("다음 씬 이름 (Build Settings 의 씬 이름과 정확히 일치)")]
-    public string          nextSceneName    = "Step6";
+    public string          nextSceneName    = "Step7";
 
     [Header("해금할 다음 스테이지 번호")]
-    [SerializeField] public int nextStageNumber = 6;
+    [SerializeField] public int nextStageNumber = 7;
 
     private int  fedCount    = 0;
     private bool isCompleted = false;
 
     void Start()
     {
-        string n = PlayerPrefs.GetString("SpiderName", "거미");
         if (goalHUD != null)
-            goalHUD.ShowGoal(n + "에게 먹이를 줘보세요!");
+            goalHUD.ShowGoal("무서운 거미에게도 먹이를 줘 보세요!");
 
         if (completionPanel != null)
             completionPanel.SetActive(false);
     }
 
-    /// <summary>FoodZoneTrigger_OVR 에서 자동 호출됩니다.</summary>
+    /// <summary>FoodZoneTrigger_OVR_08 에서 자동 호출됩니다.</summary>
     public void OnFoodPlaced()
     {
         if (isCompleted) return;
@@ -53,22 +52,21 @@ public class FeedingManager_Scene07 : MonoBehaviour
     void OnFeedingComplete()
     {
         isCompleted = true;
-        string n = PlayerPrefs.GetString("SpiderName", "거미");
 
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("Eat");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(n + "이(가) 맛있게 먹네요!");
+            goalHUD.ShowGoal("잘 먹는군요! 이제 집을 청소해 봐요.");
 
         if (completionPanel != null)
         {
             completionPanel.SetActive(true);
             if (completionText != null)
-                completionText.text = n + " 냠냠 :)";
+                completionText.text = "먹이 주기 완료!";
         }
 
-        // Step5 클리어 → Inspector의 nextStageNumber 번호 해금
+        // Step6 클리어 → Inspector의 nextStageNumber 번호 해금
         ProgressManager.Instance.UnlockStage(nextStageNumber);
 
         Invoke(nameof(LoadNextScene), 3.5f);

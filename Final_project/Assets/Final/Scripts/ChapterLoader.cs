@@ -1,9 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ChapterLoader : MonoBehaviour
 {
     public int stageNumber;
     public string sceneName;
+
+    [Header("UI")]
+    [SerializeField] private Button button;
+
+    [Header("Materials")]
+    [SerializeField] private Material lockedMaterial;
+    [SerializeField] private Material unlockedMaterial;
 
     private Renderer rend;
 
@@ -11,12 +20,32 @@ public class ChapterLoader : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
+        Refresh();
+    }
+
+    public void Refresh()
+    {
         bool unlocked =
             ProgressManager.Instance.IsUnlocked(stageNumber);
 
-        if (!unlocked)
+        Debug.Log(
+            $"Stage {stageNumber}, Unlocked = {unlocked}");
+
+        if (button != null)
         {
-            rend.material.color = Color.gray;
+            button.interactable = unlocked;
+        }
+
+        if (rend != null)
+        {
+            if (unlocked)
+            {
+                rend.material = unlockedMaterial;
+            }
+            else
+            {
+                rend.material = lockedMaterial;
+            }
         }
     }
 
@@ -24,8 +53,17 @@ public class ChapterLoader : MonoBehaviour
     {
         if (ProgressManager.Instance.IsUnlocked(stageNumber))
         {
-            UnityEngine.SceneManagement.SceneManager
-                .LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
+    }
+
+    private void OnEnable()
+    {
+        ProgressManager.OnStageUnlocked += Refresh;
+    }
+
+    private void OnDisable()
+    {
+        ProgressManager.OnStageUnlocked -= Refresh;
     }
 }

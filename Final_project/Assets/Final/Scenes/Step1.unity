@@ -261,6 +261,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 2
   sceneName: Step2
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: f9a6f814bf129a84f97743d76643149d, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &920900338
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -562,9 +565,8 @@ MonoBehaviour:
     \uBBF8\uC158\uC774\uAC70\uB4E0\uC694!"
   - "\uD55C \uBC88 \uC9C1\uC811 \uD574\uBCF4\uC2DC\uACA0\uC5B4\uC694?"
   - "\uC900\uBE44\uAC00 \uB418\uC5C8\uB2E4\uBA74 \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694!"
-  typingSpeed: 0.05
-  stageClear: {fileID: 0}
   nextStage: 2
+  typingSpeed: 0.05
 --- !u!4 &1101788365
 Transform:
   m_ObjectHideFlags: 0
