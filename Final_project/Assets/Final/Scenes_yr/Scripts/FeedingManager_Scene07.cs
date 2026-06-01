@@ -29,10 +29,6 @@ public class FeedingManager_Scene07 : MonoBehaviour
     [Header("해금할 다음 스테이지 번호")]
     public int nextStageNumber = 8;
 
-    // Stage 5 클리어 시 해금할 스테이지 번호
-    [Header("해금할 다음 스테이지 번호")]
-    public int nextStageNumber = 6;
-
     private int fedCount = 0;
     private bool isCompleted = false;
 
