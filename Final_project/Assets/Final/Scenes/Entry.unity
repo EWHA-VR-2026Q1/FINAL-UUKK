@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 35195498}
   - component: {fileID: 35195497}
   - component: {fileID: 35195496}
+  - component: {fileID: 35195499}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -227,6 +228,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35195493}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &35195499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35195493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4e5d188b2df46438e3e39c0b151c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNumber: 1
+  sceneName: Step1
 --- !u!1001 &36308349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,6 +639,7 @@ MonoBehaviour:
   - "\uADF8\uB7FC, \uD589\uC6B4\uC744 \uBE55\uB2C8\uB2E4."
   typingSpeed: 0.05
   stageClear: {fileID: 0}
+  nextStage: 1
 --- !u!4 &1101788365
 Transform:
   m_ObjectHideFlags: 0

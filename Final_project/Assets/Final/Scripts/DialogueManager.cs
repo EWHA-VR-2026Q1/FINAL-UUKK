@@ -22,6 +22,9 @@ public class DialogueManager : MonoBehaviour
 
     public StageClearTrigger stageClear;
 
+    [SerializeField]
+    public int nextStage;
+
     void Start()
     {
         if (dialoguePanel != null)
@@ -109,5 +112,6 @@ public class DialogueManager : MonoBehaviour
 
     Debug.Log("대화 종료");
     stageClear.ClearStage();
+    ProgressManager.Instance.UnlockStage(nextStage);
 }
 }

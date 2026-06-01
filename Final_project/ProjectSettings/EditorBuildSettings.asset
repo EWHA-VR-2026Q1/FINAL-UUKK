@@ -20,6 +20,30 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Final/Scenes/Step9.unity
     guid: 06167caf442204c79aa713008e59ede4
+  - enabled: 1
+    path: Assets/Final/Scenes/Step1.unity
+    guid: 049ee46fe5f8adb45961a7567d2a9aff
+  - enabled: 1
+    path: Assets/Final/Scenes/Step2.unity
+    guid: 5f30da3c9675b614aba03c1e6e4ca3a7
+  - enabled: 1
+    path: Assets/Final/Scenes/Step3.unity
+    guid: b4d6c198741a1714c9e6830364a0e5de
+  - enabled: 1
+    path: Assets/Final/Scenes/Step4.unity
+    guid: db986a7b468ce1f4b86999d753fe1a48
+  - enabled: 1
+    path: Assets/Final/Scenes/Step5.unity
+    guid: 4c33bd9c7ee30624b8c21003cd5b1d20
+  - enabled: 1
+    path: Assets/Final/Scenes/Step6.unity
+    guid: c024b54bcc6ffb645bdf9b980c2d029b
+  - enabled: 1
+    path: Assets/Final/Scenes/Step7.unity
+    guid: a86de42777929484d9d26655c0ef12ef
+  - enabled: 1
+    path: Assets/Final/Scenes/Step8.unity
+    guid: dd8689c49078045c893ac9580bcd964e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6628e62c233de446e8061c093d619816, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: f8e0323416cc84cf58585c2a84de0a7a, type: 2}
