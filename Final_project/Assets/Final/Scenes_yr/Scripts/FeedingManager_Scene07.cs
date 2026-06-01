@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Step05_FeedCuteSpider (OVR) - 귀여운 거미 먹이 주기 클리어 매니저.
+/// FoodZoneTrigger_OVR 의 feedingManager 필드에 이 컴포넌트를 연결하세요.
+/// </summary>
 public class FeedingManager_Scene07 : MonoBehaviour
 {
     [Header("필요한 먹이 개수")]
@@ -17,22 +21,13 @@ public class FeedingManager_Scene07 : MonoBehaviour
     public GameObject completionPanel;
     public TextMeshProUGUI completionText;
 
-    // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
-    public string nextSceneName = "Scene08_FeddScarySpider (OVR)";
-<<<<<<< HEAD
+    public string nextSceneName = "Step06_FeddScarySpider (OVR)";
 
-    // Scene07 클리어 → Stage 8 해금
     [Header("해금할 다음 스테이지 번호")]
-    public int nextStageNumber = 8;
-=======
->>>>>>> 3728c93 (Fix: OVR 기준으로 수정)
+    [SerializeField] public int nextStageNumber = 8;
 
-    // Scene07 클리어 → Stage 8 해금
-    [Header("해금할 다음 스테이지 번호")]
-    public int nextStageNumber = 8;
-
-    private int fedCount = 0;
+    private int  fedCount    = 0;
     private bool isCompleted = false;
 
     void Start()
@@ -49,7 +44,6 @@ public class FeedingManager_Scene07 : MonoBehaviour
     {
         if (isCompleted) return;
         fedCount++;
-
         if (fedCount >= requiredFoodCount)
             OnFeedingComplete();
     }
@@ -72,7 +66,7 @@ public class FeedingManager_Scene07 : MonoBehaviour
                 completionText.text = spiderName + " 냠냠 :)";
         }
 
-        // 현재 스테이지 클리어 → 다음 스테이지 해금
+        // Step05 클리어 → Stage 8 해금
         ProgressManager.Instance.UnlockStage(nextStageNumber);
 
         Invoke(nameof(LoadNextScene), 3.5f);
