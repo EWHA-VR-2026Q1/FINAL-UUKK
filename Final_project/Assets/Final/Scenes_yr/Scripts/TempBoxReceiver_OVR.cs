@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class TempBoxReceiver_OVR : MonoBehaviour
 {
-    public Scene09_Manager sceneManager;
+    [Header("씬별 매니저 — 해당 씬에 맞는 것만 연결하세요")]
+    public Scene09_Manager sceneManager09;   // Scene09(기존 사용)
+    public Scene07_Manager sceneManager07;   // Scene07(신규 사용)
+
     private bool spiderReceived = false;
 
     private void OnTriggerEnter(Collider other)
@@ -20,6 +23,8 @@ public class TempBoxReceiver_OVR : MonoBehaviour
 
         other.transform.position = transform.position;
         other.gameObject.SetActive(false);
-        sceneManager.OnSpiderInBox(other.gameObject);
+
+        if (sceneManager07 != null) sceneManager07.OnSpiderInBox(other.gameObject);
+        else if (sceneManager09 != null) sceneManager09.OnSpiderInBox(other.gameObject);
     }
 }
