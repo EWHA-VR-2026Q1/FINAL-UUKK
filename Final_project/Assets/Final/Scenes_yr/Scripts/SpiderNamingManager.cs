@@ -29,10 +29,6 @@ public class SpiderNamingManager : MonoBehaviour
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
     private bool  nameConfirmed = false;
 
-    private bool nameConfirmed = false;
-
-    private bool nameConfirmed = false;
-
     void Start()
     {
         btnPip.onClick.AddListener(()   => OnSelectName("Pip"));
