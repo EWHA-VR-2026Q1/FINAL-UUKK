@@ -2420,6 +2420,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_text
+      value: Stage 06 Complete!
+      objectReference: {fileID: 0}
     - target: {fileID: 4583913762611404195, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2526,11 +2530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8555353651263891806, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555353651263891806, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8555353651263891806, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2589,6 +2593,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+--- !u!114 &1505049649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3727819033943670727, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+  m_PrefabInstance: {fileID: 1505049648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b790d885e739842ecb9c3ef726f5d751, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1563159106
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,11 +3030,11 @@ MonoBehaviour:
   btnVenom: {fileID: 265528824}
   spiderNameDisplay: {fileID: 944355810}
   namingPanel: {fileID: 984031821}
-  goalText: {fileID: 1275135577}
+  goalHUD: {fileID: 1505049649}
   pipButtonImage: {fileID: 2091771204}
   venomButtonImage: {fileID: 265528825}
   spiderAnimator: {fileID: 381532326}
-  nextSceneName: Scene07_FeedCuteSpider (XR)
+  nextSceneName: Scene07_FeedCuteSpider (OVR)
 --- !u!4 &1856833854
 Transform:
   m_ObjectHideFlags: 0
