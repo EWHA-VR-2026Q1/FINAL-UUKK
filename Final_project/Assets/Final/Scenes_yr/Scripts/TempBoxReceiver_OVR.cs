@@ -3,6 +3,7 @@ using UnityEngine;
 public class TempBoxReceiver_OVR : MonoBehaviour
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     [Header("씬별 매니저 — 해당 씬에 맞는 것 하나만 연결하세요")]
     public Scene09_Manager      sceneManager09Old;  // 기존 Scene09_Manager (레거시)
     public Scene09_CleanManager sceneManager09Clean; // Scene09_CleanSpiderHouse (신규)
@@ -11,6 +12,11 @@ public class TempBoxReceiver_OVR : MonoBehaviour
     public Scene09_Manager sceneManager09;   // Scene09(기존 사용)
     public Scene07_Manager sceneManager07;   // Scene07(신규 사용)
 >>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
+=======
+    [Header("씬별 매니저 — 해당 씬에 맞는 것 하나만 연결하세요")]
+    public Scene09_Manager      sceneManager09Old;  // 기존 Scene09_Manager (레거시)
+    public Scene09_CleanManager sceneManager09Clean; // Scene09_CleanSpiderHouse (신규)
+>>>>>>> 3728c93 (Fix: OVR 기준으로 수정)
 
     private bool spiderReceived = false;
 
@@ -31,11 +37,16 @@ public class TempBoxReceiver_OVR : MonoBehaviour
         other.gameObject.SetActive(false);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (sceneManager09Clean != null) sceneManager09Clean.OnSpiderInBox(other.gameObject);
         else if (sceneManager09Old  != null) sceneManager09Old.OnSpiderInBox(other.gameObject);
 =======
         if (sceneManager07 != null) sceneManager07.OnSpiderInBox(other.gameObject);
         else if (sceneManager09 != null) sceneManager09.OnSpiderInBox(other.gameObject);
 >>>>>>> f0d904a (Fix: 스테이지 클리어 조건 추가)
+=======
+        if (sceneManager09Clean != null) sceneManager09Clean.OnSpiderInBox(other.gameObject);
+        else if (sceneManager09Old  != null) sceneManager09Old.OnSpiderInBox(other.gameObject);
+>>>>>>> 3728c93 (Fix: OVR 기준으로 수정)
     }
 }
