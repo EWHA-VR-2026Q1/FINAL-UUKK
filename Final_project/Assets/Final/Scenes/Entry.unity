@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b9270179130c4419b2f8b0a4588274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: Safe Zone
 --- !u!1001 &36308349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,8 +919,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d2e26481715a5bc4ab99fd9937a4a534, type: 2}
-  m_sharedMaterial: {fileID: -8579825772235752109, guid: d2e26481715a5bc4ab99fd9937a4a534, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -945,8 +944,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
