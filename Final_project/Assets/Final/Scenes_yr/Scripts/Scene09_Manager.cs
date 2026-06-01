@@ -46,8 +46,8 @@ public class Scene09_Manager : MonoBehaviour
     [Header("해금할 다음 스테이지 번호 (Inspector에서 직접 입력)")]
     [SerializeField] private int nextStageNumber = 10;
 
-    [Header("Next Scene (Build Settings 기준)")]
-    public string nextSceneName = "Scene10_FindSpider";
+    [Header("다음 씬 이름 (Build Settings 의 씬 이름과 정확히 일치)")]
+    public string nextSceneName = "Step8";
 
     private int  decorateCount = 0;
     private bool isCleared     = false;
