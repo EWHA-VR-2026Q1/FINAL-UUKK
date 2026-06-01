@@ -21,10 +21,19 @@ public class SpiderNamingManager : MonoBehaviour
     [Header("애니메이터")]
     public Animator spiderAnimator;
 
+<<<<<<< HEAD
     // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
     public string nextSceneName = "Scene07_FeedCuteSpider (OVR)";
 
+=======
+    [Header("다음 씬 이름 (Build Settings 기준)")]
+    public string nextSceneName = "Step05_FeedCuteSpider (OVR)";
+
+    [Header("해금할 다음 스테이지 번호 (Inspector에서 직접 입력)")]
+    [SerializeField] private int nextStageIndex = 7;
+
+>>>>>>> origin/kyr
     private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
     private bool  nameConfirmed = false;
@@ -41,10 +50,17 @@ public class SpiderNamingManager : MonoBehaviour
 
     void OnSelectName(string spiderName)
     {
+<<<<<<< HEAD
         if (nameConfirmed) return;   // 중복 호출 방지
         nameConfirmed = true;
 
         pipButtonImage.color  = spiderName == "Pip"   ? selectedColor : normalColor;
+=======
+        if (nameConfirmed) return;
+        nameConfirmed = true;
+
+        pipButtonImage.color   = spiderName == "Pip"   ? selectedColor : normalColor;
+>>>>>>> origin/kyr
         venomButtonImage.color = spiderName == "Venom" ? selectedColor : normalColor;
 
         PlayerPrefs.SetString("SpiderName", spiderName);
@@ -60,8 +76,12 @@ public class SpiderNamingManager : MonoBehaviour
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");
 
+<<<<<<< HEAD
         // Scene06 클리어 → Stage 7 해금
         ProgressManager.Instance.UnlockStage(7);
+=======
+        ProgressManager.Instance.UnlockStage(nextStageIndex);
+>>>>>>> origin/kyr
 
         Invoke(nameof(LoadNextScene), 3.0f);
     }
