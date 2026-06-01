@@ -377,9 +377,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 454417565138439963, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 454417565138439963, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 454417565138439963, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_text
-      value: "\rIf you walk straight ahead, there is a cute spider. Reach the spider."
+      value: "\uC55E\uC73C\uB85C \uCB49 \uAC78\uC5B4\uAC00\uBA74 \uADC0\uC5EC\uC6B4
+        \uAC70\uBBF8\uAC00 \uC788\uC2B5\uB2C8\uB2E4. \uC9C1\uC9C4\uD574\uC11C \uAC70\uBBF8\uB97C
+        \uC7A1\uC73C\uC138\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_margin.x
@@ -390,8 +404,32 @@ PrefabInstance:
       value: -189.17834
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675563247058055776, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 5675563247058055776, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+    - target: {fileID: 5675563247058055776, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5880846269368874102, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_Name
