@@ -243,8 +243,8 @@ MonoBehaviour:
   stageNumber: 1
   sceneName: Step1
   button: {fileID: 0}
-  lockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
-  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  lockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
 --- !u!1001 &36308349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,8 +938,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
-  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
