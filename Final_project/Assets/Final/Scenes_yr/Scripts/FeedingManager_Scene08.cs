@@ -42,7 +42,7 @@ public class FeedingManager_Scene08 : MonoBehaviour
 
     // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
-    public string nextSceneName = "Scene09_CleanSpiderHouse (OVR)";
+    public string nextSceneName = "Step07_CleanSpiderHouse (OVR)";
 
     private int  fedCount    = 0;
 =======

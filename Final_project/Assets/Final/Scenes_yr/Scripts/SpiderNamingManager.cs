@@ -25,7 +25,10 @@ public class SpiderNamingManager : MonoBehaviour
 <<<<<<< HEAD
     // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
-    public string nextSceneName = "Scene07_FeedCuteSpider (OVR)";
+    public string nextSceneName = "Step05_FeedCuteSpider (OVR)";
+
+    [Header("해금할 다음 스테이지 번호 (Inspector에서 직접 입력)")]
+    [SerializeField] private int nextStageIndex = 7;
 
     private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
 =======
