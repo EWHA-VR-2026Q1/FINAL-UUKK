@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -19,11 +19,14 @@ public class FeedingManager_Scene07 : MonoBehaviour
 
     // ※ Build Settings의 씬 이름과 정확히 일치해야 합니다
     [Header("다음 씬 이름 (Build Settings 기준)")]
-    public string nextSceneName = "Step06_FeddScarySpider (OVR)";
+    public string nextSceneName = "Scene08_FeddScarySpider (OVR)";
+<<<<<<< HEAD
 
-    // Step05 클리어 → Stage 8 해금 (Inspector에서 직접 입력 가능)
+    // Scene07 클리어 → Stage 8 해금
     [Header("해금할 다음 스테이지 번호")]
-    [SerializeField] public int nextStageNumber = 8;
+    public int nextStageNumber = 8;
+=======
+>>>>>>> 3728c93 (Fix: OVR 기준으로 수정)
 
     // Scene07 클리어 → Stage 8 해금
     [Header("해금할 다음 스테이지 번호")]
