@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class FeedingManager_Scene07 : MonoBehaviour
+/// <summary>
+/// Scene 06 (무서운 거미 먹이 주기) 클리어 매니저.
+/// FoodZoneTrigger_OVR / FoodZoneTrigger_XR 에서 OnFoodPlaced() 를 호출합니다.
+/// Inspector에서 feedingManager 필드에 이 컴포넌트를 연결하세요.
+/// </summary>
+public class FeedingManager_Scene08 : MonoBehaviour
 {
     [Header("필요한 먹이 개수")]
     public int requiredFoodCount = 1;
@@ -18,11 +23,7 @@ public class FeedingManager_Scene07 : MonoBehaviour
     public TextMeshProUGUI completionText;
 
     [Header("다음 씬")]
-    public string nextSceneName = "Scene08_FeedScarySpider";
-
-    // Stage 5 클리어 시 해금할 스테이지 번호
-    [Header("해금할 다음 스테이지 번호")]
-    public int nextStageNumber = 6;
+    public string nextSceneName = "Scene09_CleanTerrarium";
 
     private int fedCount = 0;
     private bool isCompleted = false;
@@ -31,7 +32,7 @@ public class FeedingManager_Scene07 : MonoBehaviour
     {
         string spiderName = PlayerPrefs.GetString("SpiderName", "거미");
         if (goalHUD != null)
-            goalHUD.ShowGoal(spiderName + "에게 먹이를 줘보세요!");
+            goalHUD.ShowGoal("무서운 거미에게도 먹이를 줘보세요!");
 
         if (completionPanel != null)
             completionPanel.SetActive(false);
@@ -55,17 +56,17 @@ public class FeedingManager_Scene07 : MonoBehaviour
             spiderAnimator.SetTrigger("Eat");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(spiderName + "이(가) 맛있게 먹네요!");
+            goalHUD.ShowGoal("잘 먹는군요! 이제 집을 청소해 봐요.");
 
         if (completionPanel != null)
         {
             completionPanel.SetActive(true);
             if (completionText != null)
-                completionText.text = spiderName + " 냠냠 :)";
+                completionText.text = "먹이 주기 완료!";
         }
 
-        // 현재 스테이지 클리어 → 다음 스테이지 해금
-        ProgressManager.Instance.UnlockStage(nextStageNumber);
+        // Stage 6 클리어 → Stage 7 해금
+        ProgressManager.Instance.UnlockStage(7);
 
         Invoke(nameof(LoadNextScene), 3.5f);
     }
