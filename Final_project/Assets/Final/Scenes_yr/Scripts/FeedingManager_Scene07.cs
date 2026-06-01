@@ -24,10 +24,11 @@ public class FeedingManager_Scene07 : MonoBehaviour
     [Header("다음 씬 이름 (Build Settings 기준)")]
     public string nextSceneName = "Step06_FeddScarySpider (OVR)";
 
+    // Stage 5 클리어 시 해금할 스테이지 번호
     [Header("해금할 다음 스테이지 번호")]
-    [SerializeField] public int nextStageNumber = 8;
+    public int nextStageNumber = 6;
 
-    private int  fedCount    = 0;
+    private int fedCount = 0;
     private bool isCompleted = false;
 
     void Start()
@@ -66,7 +67,7 @@ public class FeedingManager_Scene07 : MonoBehaviour
                 completionText.text = spiderName + " 냠냠 :)";
         }
 
-        // Step05 클리어 → Stage 8 해금
+        // 현재 스테이지 클리어 → 다음 스테이지 해금
         ProgressManager.Instance.UnlockStage(nextStageNumber);
 
         Invoke(nameof(LoadNextScene), 3.5f);
