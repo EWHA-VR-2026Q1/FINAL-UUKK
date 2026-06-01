@@ -10,19 +10,20 @@ public class SpiderNamingManager : MonoBehaviour
     public Button btnVenom;
     public TextMeshProUGUI spiderNameDisplay;
     public GameObject namingPanel;
-    public TextMeshProUGUI goalText;
 
-    [Header("¼±ÅÃ °­Á¶¿ë ÀÌ¹ÌÁö")]
+    [Header("HUD (VR Final > HUD ì•ˆì˜ GoalHUD ì»´í¬ë„ŒíŠ¸ ì—°ê²°)")]
+    public GoalHUD goalHUD;
+
+    [Header("ë²„íŠ¼ ì´ë¯¸ì§€")]
     public Image pipButtonImage;
     public Image venomButtonImage;
 
-    [Header("°Å¹Ì")]
+    [Header("ì• ë‹ˆë©”ì´í„°")]
     public Animator spiderAnimator;
 
-    [Header("´ÙÀ½ ¾À")]
+    [Header("ë‹¤ìŒ ì”¬")]
     public string nextSceneName = "Scene07_FeedCuteSpider";
 
-    // ¹öÆ° »ö»ó
     private Color normalColor = new Color(0.24f, 0.24f, 0.31f);
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
 
@@ -31,31 +32,33 @@ public class SpiderNamingManager : MonoBehaviour
         btnPip.onClick.AddListener(() => OnSelectName("Pip"));
         btnVenom.onClick.AddListener(() => OnSelectName("Venom"));
         spiderNameDisplay.gameObject.SetActive(false);
+
+        if (goalHUD != null)
+            goalHUD.ShowGoal("ê±°ë¯¸ì˜ ì´ë¦„ì„ ì§€ì–´ì£¼ì„¸ìš”!");
     }
 
     void OnSelectName(string spiderName)
     {
-        // ¹öÆ° »ö °­Á¶
-        pipButtonImage.color =
-            spiderName == "Pip" ? selectedColor : normalColor;
-        venomButtonImage.color =
-            spiderName == "Venom" ? selectedColor : normalColor;
+        pipButtonImage.color = spiderName == "Pip" ? selectedColor : normalColor;
+        venomButtonImage.color = spiderName == "Venom" ? selectedColor : normalColor;
 
-        // ÀÌ¸§ ÀúÀå
         PlayerPrefs.SetString("SpiderName", spiderName);
         PlayerPrefs.Save();
 
-        // UI ÀüÈ¯
         namingPanel.SetActive(false);
         spiderNameDisplay.gameObject.SetActive(true);
-        spiderNameDisplay.text = "\"" + spiderName + "\" ÁÁÀº ÀÌ¸§ÀÌ¿¡¿ä!";
-        goalText.text = spiderName + "¿¡°Ô ÀÌ¸§À» Áö¾îÁá¾î¿ä :)";
+        spiderNameDisplay.text = "\"" + spiderName + "\" ì¢‹ì€ ì´ë¦„ì´ì—ìš”!";
 
-        // °Å¹Ì ¹İÀÀ
+        if (goalHUD != null)
+            goalHUD.ShowGoal(spiderName + "ë¼ëŠ” ì´ë¦„ì„ ì§€ì–´ì¤¬ì–´ìš” :)");
+
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");
 
-        Invoke("LoadNextScene", 3.0f);
+        // Stage 4 í´ë¦¬ì–´ â†’ Stage 5 í•´ê¸ˆ
+        ProgressManager.Instance.UnlockStage(5);
+
+        Invoke(nameof(LoadNextScene), 3.0f);
     }
 
     void LoadNextScene()
