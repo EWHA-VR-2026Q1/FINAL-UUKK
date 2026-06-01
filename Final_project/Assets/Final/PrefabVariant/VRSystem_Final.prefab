@@ -220,13 +220,31 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6405612822690572891, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5078095675860649778}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1163499089576315970, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7120986177373563693}
   m_SourcePrefab: {fileID: 100100000, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
 --- !u!1 &4388495954456452903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1163499089576315970, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
   m_PrefabInstance: {fileID: 3225287138101842789}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7120986177373563693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388495954456452903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b831269d91a84a589807412be68eda22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageButtons: []
+  findButtonsInChildren: 1
+  markCurrentStage: 1
 --- !u!4 &5973802694455590258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9089865444784451095, guid: 52119ad596fd6a24eb786f545f4dc4a1, type: 3}
