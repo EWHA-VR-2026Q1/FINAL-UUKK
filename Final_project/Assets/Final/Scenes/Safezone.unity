@@ -211,6 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 2
   sceneName: Step2
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: f9a6f814bf129a84f97743d76643149d, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &303798927
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -639,6 +642,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 8
   sceneName: Step8
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 65694320db75dd04396fa594c85f33f3, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &513092294
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1220,6 +1226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 7
   sceneName: Step7
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 37abe8f4f4c715b458cdd437e5dde82d, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &861994326
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1677,6 +1686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 4
   sceneName: Step4
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 1b392133ae70e1f4696d808053c21e11, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &1239538390
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2214,6 +2226,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 3
   sceneName: Step3
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 3b4afd90313f88c4585cacf3f75c78f5, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &1506008670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2334,6 +2349,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 6
   sceneName: Step6
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 9efd6cb8115644c468f88d43a3567154, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &1572432666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2540,6 +2558,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 1
   sceneName: Step1
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 704c8984432bbee419db1fffc405461c, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!1001 &1873334408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2907,6 +2928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 5
   sceneName: Step5
+  button: {fileID: 0}
+  lockedMaterial: {fileID: 2100000, guid: 0cf5b3c69a30be64bafb4be72a6b8e15, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
 --- !u!135 &2115312858
 SphereCollider:
   m_ObjectHideFlags: 0

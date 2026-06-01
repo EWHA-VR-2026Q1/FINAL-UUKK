@@ -12,20 +12,17 @@ public class DialogueManager : MonoBehaviour
     [TextArea(2, 5)]
     public string[] dialogues;
 
+    [Header("클리어 시 해금할 스테이지")]
+    [SerializeField]
+    private int nextStage;
+
     public float typingSpeed = 0.05f;
 
     private int currentIndex = 0;
-
     private Coroutine typingCoroutine;
-
     private bool isTyping = false;
 
-    public StageClearTrigger stageClear;
-
-    [SerializeField]
-    public int nextStage;
-
-    void Start()
+    private void Start()
     {
         if (dialoguePanel != null)
         {
@@ -35,7 +32,7 @@ public class DialogueManager : MonoBehaviour
         ShowDialogue();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -49,7 +46,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void ShowDialogue()
+    private void ShowDialogue()
     {
         if (typingCoroutine != null)
         {
@@ -60,7 +57,7 @@ public class DialogueManager : MonoBehaviour
             StartCoroutine(TypeDialogue(dialogues[currentIndex]));
     }
 
-    IEnumerator TypeDialogue(string dialogue)
+    private IEnumerator TypeDialogue(string dialogue)
     {
         isTyping = true;
 
@@ -69,21 +66,19 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in dialogue)
         {
             dialogueText.text += letter;
-
             yield return new WaitForSeconds(typingSpeed);
         }
 
         isTyping = false;
     }
 
-    void NextDialogue()
+    private void NextDialogue()
     {
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
 
             dialogueText.text = dialogues[currentIndex];
-
             isTyping = false;
 
             return;
@@ -101,17 +96,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue()
-{
-    dialogueText.text = "";
-
-    if (dialoguePanel != null)
+    private void EndDialogue()
     {
-        dialoguePanel.SetActive(false);
-    }
+        dialogueText.text = "";
 
-    Debug.Log("대화 종료");
-    stageClear.ClearStage();
-    ProgressManager.Instance.UnlockStage(nextStage);
-}
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.SetActive(false);
+        }
+
+        Debug.Log("대화 종료");
+
+        ProgressManager.Instance.UnlockStage(nextStage);
+    }
 }
