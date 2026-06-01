@@ -18,8 +18,8 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class TempBoxClickable_OVR : MonoBehaviour, IPointerClickHandler
 {
-    [Header("Scene09_CleanManager 연결")]
-    public Scene09_CleanManager sceneManager;
+    [Header("Scene09_Manager 연결")]
+    public Scene09_Manager sceneManager;
 
     [Header("클릭 가능 상태 시각 피드백 오브젝트 (선택 — 빛나는 아우라 등)")]
     public GameObject clickableIndicator;
@@ -33,7 +33,7 @@ public class TempBoxClickable_OVR : MonoBehaviour, IPointerClickHandler
             clickableIndicator.SetActive(false);
     }
 
-    /// <summary>Scene09_CleanManager 가 모든 조건 충족 후 자동 호출합니다.</summary>
+    /// <summary>Scene09_Manager 가 모든 조건 충족 후 자동 호출합니다.</summary>
     public void EnableClick()
     {
         isClickable = true;

@@ -52,22 +52,4 @@ public class SaveManager : MonoBehaviour
             data = new SaveData();
         }
     }
-
-// 시험 임시 리셋용 함수
-    public void ResetSave()
-    {
-        data = new SaveData();
-
-        SaveGame();
-
-        Debug.Log("Save Reset");
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SaveManager.Instance.ResetSave();
-        }
-    }
-    // R 버튼 누르면 임시 리셋
 }

@@ -29,37 +29,31 @@ public class ChapterLoader : MonoBehaviour
             ProgressManager.Instance.IsUnlocked(stageNumber);
 
         Debug.Log(
-            $"Stage={stageNumber}, " +
-            $"Unlocked={unlocked}");
+            $"Stage {stageNumber}, Unlocked = {unlocked}");
+
+        if (button != null)
+        {
+            button.interactable = unlocked;
+        }
 
         if (rend != null)
         {
-            Material target =
-                unlocked ? unlockedMaterial : lockedMaterial;
-
-            rend.material = target;
-
-            Debug.Log(
-                $"Applied Material = {target.name}");
+            if (unlocked)
+            {
+                rend.material = unlockedMaterial;
+            }
+            else
+            {
+                rend.material = lockedMaterial;
+            }
         }
     }
 
     private void OnMouseDown()
     {
-        bool unlocked =
-            ProgressManager.Instance.IsUnlocked(stageNumber);
-
-        Debug.Log(
-            $"Clicked Stage={stageNumber}, " +
-            $"Highest={SaveManager.Instance.data.highestUnlockedStage}, " +
-            $"Unlocked={unlocked}");
-
-        if (unlocked)
+        if (ProgressManager.Instance.IsUnlocked(stageNumber))
         {
-            Debug.Log($"Loading {sceneName}");
-
-            UnityEngine.SceneManagement.SceneManager
-                .LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
     }
 

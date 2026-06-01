@@ -3034,7 +3034,8 @@ MonoBehaviour:
   pipButtonImage: {fileID: 2091771204}
   venomButtonImage: {fileID: 265528825}
   spiderAnimator: {fileID: 381532326}
-  nextSceneName: Scene07_FeedCuteSpider (OVR)
+  nextSceneName: Step5
+  nextStageIndex: 5
 --- !u!4 &1856833854
 Transform:
   m_ObjectHideFlags: 0

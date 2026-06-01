@@ -3,29 +3,33 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Step4 씬 — 거미 이름 짓기 클리어 매니저.
+/// 이름 버튼 클릭 → UnlockStage(nextStageIndex) → Step5 로드
+/// </summary>
 public class SpiderNamingManager : MonoBehaviour
 {
     [Header("UI")]
-    public Button btnPip;
-    public Button btnVenom;
-    public TextMeshProUGUI spiderNameDisplay;
-    public GameObject namingPanel;
+    public Button              btnPip;
+    public Button              btnVenom;
+    public TextMeshProUGUI     spiderNameDisplay;
+    public GameObject          namingPanel;
 
-    [Header("HUD (VR Final > HUD 안의 GoalHUD 컴포넌트 연결)")]
-    public GoalHUD goalHUD;
+    [Header("HUD (VRSystem_Final 안의 GoalHUD 컴포넌트 연결)")]
+    public GoalHUD             goalHUD;
 
     [Header("버튼 이미지")]
-    public Image pipButtonImage;
-    public Image venomButtonImage;
+    public Image               pipButtonImage;
+    public Image               venomButtonImage;
 
     [Header("애니메이터")]
-    public Animator spiderAnimator;
+    public Animator            spiderAnimator;
 
-    [Header("다음 씬 이름 (Build Settings 기준)")]
-    public string nextSceneName = "Step05_FeedCuteSpider (OVR)";
+    [Header("다음 씬 이름 (Build Settings 의 씬 이름과 정확히 일치)")]
+    public string              nextSceneName  = "Step5";
 
-    [Header("해금할 다음 스테이지 번호 (Inspector에서 직접 입력)")]
-    [SerializeField] private int nextStageIndex = 7;
+    [Header("해금할 다음 스테이지 번호")]
+    [SerializeField] private int nextStageIndex = 5;
 
     private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
@@ -62,13 +66,11 @@ public class SpiderNamingManager : MonoBehaviour
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");
 
+        // Step4 클리어 → Inspector의 nextStageIndex 번호 해금
         ProgressManager.Instance.UnlockStage(nextStageIndex);
 
         Invoke(nameof(LoadNextScene), 3.0f);
     }
 
-    void LoadNextScene()
-    {
-        SceneManager.LoadScene(nextSceneName);
-    }
+    void LoadNextScene() => SceneManager.LoadScene(nextSceneName);
 }
