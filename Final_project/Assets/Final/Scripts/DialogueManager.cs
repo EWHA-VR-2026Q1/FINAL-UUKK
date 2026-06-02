@@ -1,18 +1,21 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour, IPointerClickHandler
 {
+    public static bool IsDialogueActive { get; private set; }
+
     [Header("UI")]
     public TextMeshProUGUI dialogueText;
     public GameObject dialoguePanel;
 
-    [Header("대사")]
+    [Header("Dialogue")]
     [TextArea(2, 5)]
     public string[] dialogues;
 
-    [Header("클리어 시 해금할 스테이지")]
+    [Header("Stage To Unlock When Complete")]
     [SerializeField]
     private int nextStage;
 
@@ -24,6 +27,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        IsDialogueActive = true;
+
         if (dialoguePanel != null)
         {
             dialoguePanel.SetActive(true);
@@ -34,20 +39,66 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!IsDialogueActive)
         {
-            NextDialogue();
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0) ||
+            Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetKeyDown(KeyCode.Return) ||
+            IsVRConfirmPressed())
+        {
+            AdvanceDialogue();
         }
 
         if (Input.touchCount > 0 &&
             Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            NextDialogue();
+            AdvanceDialogue();
         }
+    }
+
+    private void OnDestroy()
+    {
+        IsDialogueActive = false;
+    }
+
+    private bool IsVRConfirmPressed()
+    {
+        return OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger) ||
+               OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger) ||
+               OVRInput.GetDown(OVRInput.RawButton.A) ||
+               OVRInput.GetDown(OVRInput.RawButton.X) ||
+               OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
+               OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) ||
+               OVRInput.GetDown(OVRInput.Button.One) ||
+               OVRInput.GetDown(OVRInput.Button.Three);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        AdvanceDialogue();
+    }
+
+    public void AdvanceDialogue()
+    {
+        if (!IsDialogueActive)
+        {
+            return;
+        }
+
+        NextDialogue();
     }
 
     private void ShowDialogue()
     {
+        if (dialogues == null || dialogues.Length == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -98,15 +149,23 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        dialogueText.text = "";
+        IsDialogueActive = false;
+
+        if (dialogueText != null)
+        {
+            dialogueText.text = "";
+        }
 
         if (dialoguePanel != null)
         {
             dialoguePanel.SetActive(false);
         }
 
-        Debug.Log("대화 종료");
+        Debug.Log("Dialogue ended.");
 
-        ProgressManager.Instance.UnlockStage(nextStage);
+        if (ProgressManager.Instance != null)
+        {
+            ProgressManager.Instance.UnlockStage(nextStage);
+        }
     }
 }

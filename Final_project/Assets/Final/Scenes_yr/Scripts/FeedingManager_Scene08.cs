@@ -34,7 +34,7 @@ public class FeedingManager_Scene08 : MonoBehaviour
     void Start()
     {
         if (goalHUD != null)
-            goalHUD.ShowGoal("무서운 거미에게도 먹이를 줘 보세요!");
+            goalHUD.ShowGoal("Feed the scary spider too.");
 
         if (completionPanel != null)
             completionPanel.SetActive(false);
@@ -57,13 +57,13 @@ public class FeedingManager_Scene08 : MonoBehaviour
             spiderAnimator.SetTrigger("Eat");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal("잘 먹는군요! 이제 집을 청소해 봐요.");
+            goalHUD.ShowGoal("Good. Now clean the spider house.");
 
         if (completionPanel != null)
         {
             completionPanel.SetActive(true);
             if (completionText != null)
-                completionText.text = "먹이 주기 완료!";
+                completionText.text = "Feeding complete!";
         }
 
         // Step6 클리어 → Inspector의 nextStageNumber 번호 해금

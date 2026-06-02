@@ -121,7 +121,7 @@ public class SpiderGrabbable : MonoBehaviour
             {
                 // NavMesh 못 찾으면 일단 Agent만 다시 켜기
                 agent.enabled = true;
-                Debug.LogWarning($"[SpiderGrabbable] {name}: NavMesh를 못 찾음. 거미가 NavMesh 밖에 있을 수 있음.", this);
+                Debug.LogWarning($"[SpiderGrabbable] {name}: Could not find nearby NavMesh. The spider may be outside the NavMesh.", this);
             }
         }
 

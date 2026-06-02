@@ -375,11 +375,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC70\uBBF8 \uADF9\uBCF5 \uC2DC\uBBAC\uB808\uC774\uC158\uC5D0 \uC624\uC2E0
-    \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4."
+  m_text: "Welcome to the Spider Interaction Simulator."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
-  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -587,8 +586,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stage
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
-  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -721,8 +720,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Safezone
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
-  m_sharedMaterial: {fileID: 9011443145643890997, guid: 8139c7463d61e864ebe4ee61aa650a89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -981,9 +980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b790d885e739842ecb9c3ef726f5d751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goalText: {fileID: 0}
+  goalText: {fileID: 5888846446300409896}
   canvasGroup: {fileID: 1095452755554102785}
-  initialGoal: "\uD14C\uC2A4\uD2B8 \uBB38\uAD6C \uC785\uB825"
+  initialGoal: "Welcome to the Spider Interaction Simulator."
   showOnStart: 1
   fadeInDuration: 1
   fadeOutDuration: 1

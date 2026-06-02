@@ -33,9 +33,9 @@ public class FeedingManager_Scene07 : MonoBehaviour
 
     void Start()
     {
-        string n = PlayerPrefs.GetString("SpiderName", "거미");
+        string n = PlayerPrefs.GetString("SpiderName", "Spider");
         if (goalHUD != null)
-            goalHUD.ShowGoal(n + "에게 먹이를 줘보세요!");
+            goalHUD.ShowGoal("Feed " + n + ".");
 
         if (completionPanel != null)
             completionPanel.SetActive(false);
@@ -53,19 +53,19 @@ public class FeedingManager_Scene07 : MonoBehaviour
     void OnFeedingComplete()
     {
         isCompleted = true;
-        string n = PlayerPrefs.GetString("SpiderName", "거미");
+        string n = PlayerPrefs.GetString("SpiderName", "Spider");
 
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("Eat");
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(n + "이(가) 맛있게 먹네요!");
+            goalHUD.ShowGoal(n + " is eating well!");
 
         if (completionPanel != null)
         {
             completionPanel.SetActive(true);
             if (completionText != null)
-                completionText.text = n + " 냠냠 :)";
+                completionText.text = n + " is happy. :)";
         }
 
         // Step5 클리어 → Inspector의 nextStageNumber 번호 해금

@@ -40,7 +40,7 @@ public class TempBoxClickable_OVR : MonoBehaviour, IPointerClickHandler
         if (clickableIndicator != null)
             clickableIndicator.SetActive(true);
 
-        Debug.Log("[TempBox] 클릭 가능 상태 활성화");
+        Debug.Log("[TempBox] Click is now enabled.");
     }
 
     // IPointerClickHandler — OVRInputModule + PhysicsRaycaster 가 자동 호출
@@ -52,7 +52,7 @@ public class TempBoxClickable_OVR : MonoBehaviour, IPointerClickHandler
         if (clickableIndicator != null)
             clickableIndicator.SetActive(false);
 
-        Debug.Log("[TempBox] OVR 레이 클릭 감지 → 클리어 처리");
+        Debug.Log("[TempBox] OVR ray click detected. Clearing stage...");
 
         if (sceneManager != null)
             sceneManager.OnTempBoxClicked();

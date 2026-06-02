@@ -42,7 +42,7 @@ public class SpiderNamingManager : MonoBehaviour
         spiderNameDisplay.gameObject.SetActive(false);
 
         if (goalHUD != null)
-            goalHUD.ShowGoal("거미의 이름을 지어주세요!");
+            goalHUD.ShowGoal("Choose a name for the spider.");
     }
 
     void OnSelectName(string spiderName)
@@ -58,10 +58,10 @@ public class SpiderNamingManager : MonoBehaviour
 
         namingPanel.SetActive(false);
         spiderNameDisplay.gameObject.SetActive(true);
-        spiderNameDisplay.text = "\"" + spiderName + "\" 좋은 이름이에요!";
+        spiderNameDisplay.text = "\"" + spiderName + "\" is a good name!";
 
         if (goalHUD != null)
-            goalHUD.ShowGoal(spiderName + "(이)라는 이름을 지어줬어요 :)");
+            goalHUD.ShowGoal("You named the spider " + spiderName + ".");
 
         if (spiderAnimator != null)
             spiderAnimator.SetTrigger("React");

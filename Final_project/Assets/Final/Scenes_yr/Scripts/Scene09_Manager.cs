@@ -130,7 +130,7 @@ public class Scene09_Manager : MonoBehaviour
         if (tempBoxClickable != null)
             tempBoxClickable.EnableClick();
         else
-            Debug.LogWarning("[Scene09_Manager] TempBoxClickable_OVR 가 연결되지 않았습니다!");
+            Debug.LogWarning("[Scene09_Manager] TempBoxClickable_OVR is not assigned.");
     }
 
     void TriggerClear()
