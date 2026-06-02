@@ -810,6 +810,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 559773719789807948, guid: 2b9cabb2a2d3bb4499b408ef615c0ce9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 810385046003047027, guid: 2b9cabb2a2d3bb4499b408ef615c0ce9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.96
@@ -869,6 +873,10 @@ PrefabInstance:
     - target: {fileID: 4032267928528136061, guid: 2b9cabb2a2d3bb4499b408ef615c0ce9, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574966379920772681, guid: 2b9cabb2a2d3bb4499b408ef615c0ce9, type: 3}
+      propertyPath: m_TagString
+      value: Spider
       objectReference: {fileID: 0}
     - target: {fileID: 6033477508200676209, guid: 2b9cabb2a2d3bb4499b408ef615c0ce9, type: 3}
       propertyPath: m_Name
@@ -1737,8 +1745,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8369882169486435614, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1114295974}
   m_SourcePrefab: {fileID: 100100000, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+--- !u!1 &1114295973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8369882169486435614, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
+  m_PrefabInstance: {fileID: 1114295972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1114295974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114295973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1001 &1226066234
 PrefabInstance:
   m_ObjectHideFlags: 0
