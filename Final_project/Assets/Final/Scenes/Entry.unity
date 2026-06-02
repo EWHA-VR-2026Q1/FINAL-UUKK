@@ -243,8 +243,8 @@ MonoBehaviour:
   stageNumber: 1
   sceneName: Step1
   button: {fileID: 0}
-  lockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
-  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  lockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
 --- !u!1001 &36308349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,7 +515,8 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Welcome to the Spider Interaction Simulator.
 
-        Follow the guide, then click the door to start.'
+        Follow the guide,
+        then click the door to start.'
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_fontSize

@@ -240,9 +240,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_text
-      value: "\uC800\uAE30\uC5D0 \uC2E4\uC81C\uC640 \uC720\uC0AC\uD55C \uAC70\uBBF8\uAC00
-        \uC788\uC2B5\uB2C8\uB2E4.        \uC9C1\uC9C4\uD574\uC11C \uAC70\uBBF8\uB97C
-        \uC7A1\uC544\uBCF4\uC138\uC694."
+      value: There is a scary spider over there. Go straight ahead and try to catch
+        the spider.
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_margin.x

@@ -401,6 +401,7 @@ MonoBehaviour:
   nextStageNumber: 3
   loadSceneAfterClear: 1
   nextSceneName: Step3
+  spiderOnly: 1
 --- !u!4 &1368685166
 Transform:
   m_ObjectHideFlags: 0
@@ -438,9 +439,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_text
-      value: "\uC55E\uC73C\uB85C \uCB49 \uAC78\uC5B4\uAC00\uBA74 \uADC0\uC5EC\uC6B4
-        \uAC70\uBBF8\uAC00 \uC788\uC2B5\uB2C8\uB2E4. \uC9C1\uC9C4\uD574\uC11C \uAC70\uBBF8\uB97C
-        \uC7A1\uC73C\uC138\uC694."
+      value: There is a cute spider over there. Go straight ahead and try to catch
+        the spider.
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_margin.x

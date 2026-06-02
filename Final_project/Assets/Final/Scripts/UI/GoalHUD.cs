@@ -70,8 +70,21 @@ public class GoalHUD : MonoBehaviour
 
     void Start()
     {
-        if (showOnStart && !string.IsNullOrWhiteSpace(initialGoal))
+        if (!showOnStart)
+        {
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(initialGoal))
+        {
             ShowGoal(initialGoal);
+            return;
+        }
+
+        if (goalText != null && !string.IsNullOrWhiteSpace(goalText.text))
+        {
+            ShowGoal(goalText.text);
+        }
     }
 
     /// <summary>외부에서 새 목표 문구를 띄울 때 호출.</summary>
