@@ -37,6 +37,19 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(savePath, json);
     }
 
+    public void ResetGame()
+    {
+        data = new SaveData();
+
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+
+        PlayerPrefs.DeleteKey("SpiderName");
+        PlayerPrefs.Save();
+    }
+
     public void LoadGame()
     {
         if (File.Exists(savePath))

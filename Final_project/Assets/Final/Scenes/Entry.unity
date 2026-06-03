@@ -243,8 +243,8 @@ MonoBehaviour:
   stageNumber: 1
   sceneName: Step1
   button: {fileID: 0}
-  lockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
-  unlockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  lockedMaterial: {fileID: 2100000, guid: abf198a32b8a2a84eadb738bc533bfdc, type: 2}
+  unlockedMaterial: {fileID: 2100000, guid: 00e797ac5392a764a86a587ef398f18b, type: 2}
 --- !u!1001 &36308349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -515,7 +515,8 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Welcome to the Spider Interaction Simulator.
 
-        Follow the guide, then click the door to start.'
+        Follow the guide,
+        then click the door to start.'
       objectReference: {fileID: 0}
     - target: {fileID: 3503125901875716678, guid: 233dbc6de11734b2fbde5020f23b06a5, type: 3}
       propertyPath: m_fontSize
@@ -727,10 +728,10 @@ RectTransform:
   - {fileID: 1314093290}
   m_Father: {fileID: 1883258525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 275}
-  m_SizeDelta: {x: -120, y: -950}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -210}
+  m_SizeDelta: {x: 700, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939799332
 MonoBehaviour:
@@ -1120,7 +1121,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 50}
+  m_SizeDelta: {x: 640, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1314093291
 MonoBehaviour:
@@ -1670,7 +1671,7 @@ RectTransform:
   m_GameObject: {fileID: 1883258521}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 939799331}

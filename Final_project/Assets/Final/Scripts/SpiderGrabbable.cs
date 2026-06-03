@@ -42,11 +42,15 @@ public class SpiderGrabbable : MonoBehaviour
     private MonoBehaviour[] disableOnGrab;  // 잡혔을 때 끌 스크립트들
     private bool isGrabbed = false;
     private Coroutine restoreRoutine;
+    private bool initialUseGravity;
+    private bool initialIsKinematic;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+        initialUseGravity = rb.useGravity;
+        initialIsKinematic = rb.isKinematic;
 
         // 잡혔을 때 비활성화할 거미 movement 스크립트들 모으기
         // (이름으로 직접 참조하지 않고 GetComponent로 — SpiderFacingFix 없어도 OK)
@@ -92,6 +96,17 @@ public class SpiderGrabbable : MonoBehaviour
         if (logEvents) Debug.Log($"[SpiderGrabbable] {name} released.", this);
 
         isGrabbed = false;
+
+        // EX_OVRInput_Grab은 release 순간 모든 Rigidbody를 던지는 방식으로 복구한다.
+        // NavMeshAgent가 있는 거미는 physics와 agent가 싸우지 않도록 즉시 멈춰둔다.
+        if (rb != null && agent != null)
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+            rb.isKinematic = true;
+        }
+
         restoreRoutine = StartCoroutine(RestoreAfterLanding());
     }
 
@@ -115,14 +130,23 @@ public class SpiderGrabbable : MonoBehaviour
                 transform.position = hit.position;
                 agent.enabled = true;
                 agent.Warp(hit.position);
+                rb.useGravity = false;
+                rb.isKinematic = true;
                 if (logEvents) Debug.Log($"[SpiderGrabbable] Warped to NavMesh at {hit.position}.", this);
             }
             else
             {
                 // NavMesh 못 찾으면 일단 Agent만 다시 켜기
                 agent.enabled = true;
+                rb.useGravity = initialUseGravity;
+                rb.isKinematic = initialIsKinematic;
                 Debug.LogWarning($"[SpiderGrabbable] {name}: Could not find nearby NavMesh. The spider may be outside the NavMesh.", this);
             }
+        }
+        else if (rb != null)
+        {
+            rb.useGravity = initialUseGravity;
+            rb.isKinematic = initialIsKinematic;
         }
 
         // movement 스크립트 다시 켜기
