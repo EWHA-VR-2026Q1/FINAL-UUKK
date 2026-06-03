@@ -22,6 +22,11 @@ public class SpiderNamingManager : MonoBehaviour
     public Image               pipButtonImage;
     public Image               venomButtonImage;
 
+    [Header("VR Hover Feedback")]
+    [SerializeField] private Color hoverColor = new Color(1.0f, 0.86f, 0.28f);
+    [SerializeField] private float hoverScale = 1.08f;
+    [SerializeField] private float hoverRayDistance = 12f;
+
     [Header("애니메이터")]
     public Animator            spiderAnimator;
 
@@ -34,6 +39,8 @@ public class SpiderNamingManager : MonoBehaviour
     private Color normalColor   = new Color(0.24f, 0.24f, 0.31f);
     private Color selectedColor = new Color(0.29f, 0.56f, 1.00f);
     private bool  nameConfirmed = false;
+    private RectTransform pipRect;
+    private RectTransform venomRect;
 
     void Start()
     {
@@ -41,8 +48,31 @@ public class SpiderNamingManager : MonoBehaviour
         btnVenom.onClick.AddListener(() => OnSelectName("Venom"));
         spiderNameDisplay.gameObject.SetActive(false);
 
+        pipRect = btnPip != null ? btnPip.GetComponent<RectTransform>() : null;
+        venomRect = btnVenom != null ? btnVenom.GetComponent<RectTransform>() : null;
+
+        if (pipButtonImage != null) normalColor = pipButtonImage.color;
+
         if (goalHUD != null)
             goalHUD.ShowGoal("Choose a name for the spider.");
+    }
+
+    void Update()
+    {
+        if (nameConfirmed) return;
+
+        bool pipHovered = pipRect != null &&
+                          VRPointerClickUtility.IsPointingAt(pipRect, hoverRayDistance);
+        bool venomHovered = venomRect != null &&
+                            VRPointerClickUtility.IsPointingAt(venomRect, hoverRayDistance);
+
+        ApplyHoverFeedback(pipButtonImage, pipRect, pipHovered);
+        ApplyHoverFeedback(venomButtonImage, venomRect, venomHovered);
+
+        if (!VRPointerClickUtility.WasClickPressed()) return;
+
+        if (pipHovered) OnSelectName("Pip");
+        else if (venomHovered) OnSelectName("Venom");
     }
 
     void OnSelectName(string spiderName)
@@ -73,4 +103,13 @@ public class SpiderNamingManager : MonoBehaviour
     }
 
     void LoadNextScene() => SceneManager.LoadScene(nextSceneName);
+
+    private void ApplyHoverFeedback(Image image, RectTransform rect, bool hovered)
+    {
+        if (image != null)
+            image.color = hovered ? hoverColor : normalColor;
+
+        if (rect != null)
+            rect.localScale = Vector3.one * (hovered ? hoverScale : 1f);
+    }
 }
