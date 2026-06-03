@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public SaveData data;
 
     private string savePath;
+    private const string SaveFileName = "save.json";
 
     private void Awake()
     {
@@ -22,32 +23,47 @@ public class SaveManager : MonoBehaviour
             return;
         }
 
-        savePath =
-            Application.persistentDataPath +
-            "/save.json";
+        savePath = GetSavePath();
 
         LoadGame();
     }
 
     public void SaveGame()
     {
-        string json =
-            JsonUtility.ToJson(data, true);
-
-        File.WriteAllText(savePath, json);
+        WriteStoredProgress(data);
     }
 
     public void ResetGame()
     {
         data = new SaveData();
+        ClearStoredProgress();
+    }
 
-        if (File.Exists(savePath))
+    public static void ClearStoredProgress()
+    {
+        string path = GetSavePath();
+
+        if (File.Exists(path))
         {
-            File.Delete(savePath);
+            File.Delete(path);
         }
 
         PlayerPrefs.DeleteKey("SpiderName");
+        PlayerPrefs.DeleteKey("SpiderLastX");
+        PlayerPrefs.DeleteKey("SpiderLastY");
+        PlayerPrefs.DeleteKey("SpiderLastZ");
         PlayerPrefs.Save();
+    }
+
+    public static void WriteStoredProgress(SaveData saveData)
+    {
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(GetSavePath(), json);
+    }
+
+    private static string GetSavePath()
+    {
+        return Path.Combine(Application.persistentDataPath, SaveFileName);
     }
 
     public void LoadGame()

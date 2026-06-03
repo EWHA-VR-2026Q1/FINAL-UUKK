@@ -40,13 +40,21 @@ public static class VRPointerClickUtility
 
     private static Ray GetRightPointerRay()
     {
-        Transform hand = GameObject.Find("RightHandAnchor")?.transform;
+        Transform hand = FindFirstTransform(
+            "RightHandAnchor",
+            "RightHandOnControllerAnchor",
+            "RightHandAnchorDetached");
+
         return hand != null ? new Ray(hand.position, hand.forward) : GetCameraRay();
     }
 
     private static Ray GetLeftPointerRay()
     {
-        Transform hand = GameObject.Find("LeftHandAnchor")?.transform;
+        Transform hand = FindFirstTransform(
+            "LeftHandAnchor",
+            "LeftHandOnControllerAnchor",
+            "LeftHandAnchorDetached");
+
         return hand != null ? new Ray(hand.position, hand.forward) : GetCameraRay();
     }
 
@@ -76,11 +84,34 @@ public static class VRPointerClickUtility
 
     private static bool IsPointerRayHittingCollider(Ray ray, Collider target, float maxDistance)
     {
-        if (!Physics.Raycast(ray, out RaycastHit hit, maxDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))
+        RaycastHit[] hits = Physics.RaycastAll(ray, maxDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
+        if (hits == null || hits.Length == 0)
         {
             return false;
         }
 
-        return hit.collider == target || hit.collider.transform.IsChildOf(target.transform);
+        foreach (RaycastHit hit in hits)
+        {
+            if (hit.collider == target || hit.collider.transform.IsChildOf(target.transform))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static Transform FindFirstTransform(params string[] names)
+    {
+        foreach (string name in names)
+        {
+            GameObject found = GameObject.Find(name);
+            if (found != null)
+            {
+                return found.transform;
+            }
+        }
+
+        return null;
     }
 }

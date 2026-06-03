@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// VR용 Goal HUD — 씬 시작 시 사용자에게 목표 문구를 띄워주는 World Space UI.
@@ -73,6 +74,12 @@ public class GoalHUD : MonoBehaviour
         if (!showOnStart)
         {
             return;
+        }
+
+        if (string.IsNullOrWhiteSpace(initialGoal) &&
+            SceneManager.GetActiveScene().name == "Safezone")
+        {
+            initialGoal = "Safe Zone\nChoose a stage to continue.";
         }
 
         if (!string.IsNullOrWhiteSpace(initialGoal))

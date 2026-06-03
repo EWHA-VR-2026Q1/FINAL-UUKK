@@ -530,6 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1101788365}
   - component: {fileID: 1101788364}
+  - component: {fileID: 1101788366}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -544,7 +545,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101788363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c08eb5e4e333d94eb8c0b3d95e50838, type: 3}
   m_Name: 
@@ -575,6 +576,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1101788366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101788363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d77ecac901d4f67a61eb027a1f3f311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goalHUD: {fileID: 0}
+  secondsPerLine: 10
+  nextStageNumber: 2
+  lines:
+  - Hi. It is nice to meet you.
+  - Before we start, here is what spiders need.
+  - A good home needs proper floor material and stable structures.
+  - Food is important too.
+  - Your first mission is to learn the basics.
+  - When you are ready, press the button to continue.
 --- !u!1 &1175155137
 GameObject:
   m_ObjectHideFlags: 0

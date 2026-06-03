@@ -90,19 +90,31 @@ public class StageMenuButton : MonoBehaviour
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(targetSceneName))
+        string resolvedSceneName = ResolveTargetSceneName();
+
+        if (string.IsNullOrWhiteSpace(resolvedSceneName))
         {
             Debug.LogWarning($"[StageMenuButton] Stage {stageNumber}: targetSceneName is empty. Set it in the Inspector.", this);
             return;
         }
 
-        if (!Application.CanStreamedLevelBeLoaded(targetSceneName))
+        if (!Application.CanStreamedLevelBeLoaded(resolvedSceneName))
         {
-            Debug.LogError($"[StageMenuButton] Could not find scene '{targetSceneName}'. Check Build Settings.", this);
+            Debug.LogError($"[StageMenuButton] Could not find scene '{resolvedSceneName}'. Check Build Settings.", this);
             return;
         }
 
-        SceneManager.LoadScene(targetSceneName);
+        SceneManager.LoadScene(resolvedSceneName);
+    }
+
+    private string ResolveTargetSceneName()
+    {
+        if (stageNumber >= 1 && stageNumber <= 9)
+        {
+            return "Step" + stageNumber;
+        }
+
+        return targetSceneName;
     }
 
     void ApplyStateColor()

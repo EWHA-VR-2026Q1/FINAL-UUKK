@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 /// <summary>
 /// Legacy receiver kept for scenes that still serialize the old TempBoxReceiver script.
@@ -8,38 +9,142 @@ public class TempBoxReceiver : MonoBehaviour
 {
     public Scene09_Manager sceneManager;
 
+    [Header("Temp Spider Swap")]
+    public GameObject replacementSpiderObject;
+    public string replacementSpiderName = "Black_w_v_thisisfortemp";
+
     private bool spiderReceived = false;
+
+    private void Awake()
+    {
+        LockTempBoxPhysics();
+
+        if (replacementSpiderObject == null)
+            replacementSpiderObject = FindSceneObjectByName(replacementSpiderName);
+
+        if (replacementSpiderObject != null)
+            replacementSpiderObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (spiderReceived) return;
-        if (!other.CompareTag("Spider")) return;
+
+        GameObject spider = FindSpiderObject(other);
+        if (spider == null) return;
+        if (spider == replacementSpiderObject) return;
 
         spiderReceived = true;
 
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb != null)
+        DisableOriginalSpider(spider, other);
+        ActivateReplacementSpider();
+
+        if (sceneManager != null)
+        {
+            sceneManager.OnSpiderInBox(spider);
+        }
+        else
+        {
+            Debug.LogWarning("[TempBoxReceiver] sceneManager is not assigned.", this);
+        }
+    }
+
+    private void LockTempBoxPhysics()
+    {
+        foreach (Rigidbody rb in GetComponentsInParent<Rigidbody>(true))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
+        foreach (Collider col in GetComponents<Collider>())
+            col.isTrigger = true;
+
+        foreach (Behaviour behaviour in GetComponentsInParent<Behaviour>(true))
+        {
+            string typeName = behaviour.GetType().Name;
+            if (typeName == nameof(OVRGrabbable) || typeName == "XRGrabInteractable")
+                behaviour.enabled = false;
+        }
+    }
+
+    private GameObject FindSpiderObject(Collider other)
+    {
+        if (other.CompareTag("Spider"))
+            return other.gameObject;
+
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Spider"))
+            return other.attachedRigidbody.gameObject;
+
+        SpiderGrabbable grabbable = other.GetComponentInParent<SpiderGrabbable>();
+        if (grabbable != null)
+            return grabbable.gameObject;
+
+        Transform root = other.transform.root;
+        if (root != null && root.CompareTag("Spider"))
+            return root.gameObject;
+
+        return null;
+    }
+
+    private void DisableOriginalSpider(GameObject spider, Collider triggerCollider)
+    {
+        foreach (Rigidbody rb in spider.GetComponentsInChildren<Rigidbody>(true))
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.isKinematic = true;
         }
 
-        OVRGrabbable grab = other.GetComponent<OVRGrabbable>();
-        if (grab != null)
+        if (triggerCollider.attachedRigidbody != null)
         {
-            grab.enabled = false;
+            triggerCollider.attachedRigidbody.velocity = Vector3.zero;
+            triggerCollider.attachedRigidbody.angularVelocity = Vector3.zero;
+            triggerCollider.attachedRigidbody.isKinematic = true;
         }
 
-        other.transform.position = transform.position;
+        foreach (NavMeshAgent agent in spider.GetComponentsInChildren<NavMeshAgent>(true))
+            agent.enabled = false;
 
-        if (sceneManager != null)
+        foreach (SpiderWander wander in spider.GetComponentsInChildren<SpiderWander>(true))
+            wander.enabled = false;
+
+        foreach (SpiderGrabbable grabbable in spider.GetComponentsInChildren<SpiderGrabbable>(true))
+            grabbable.enabled = false;
+
+        foreach (OVRGrabbable grabbable in spider.GetComponentsInChildren<OVRGrabbable>(true))
+            grabbable.enabled = false;
+
+        spider.SetActive(false);
+    }
+
+    private void ActivateReplacementSpider()
+    {
+        if (replacementSpiderObject == null)
+            replacementSpiderObject = FindSceneObjectByName(replacementSpiderName);
+
+        if (replacementSpiderObject == null)
         {
-            sceneManager.OnSpiderInBox(other.gameObject);
+            Debug.LogWarning("[TempBoxReceiver] Replacement spider was not found.", this);
+            return;
         }
-        else
+
+        replacementSpiderObject.SetActive(true);
+    }
+
+    private GameObject FindSceneObjectByName(string objectName)
+    {
+        if (string.IsNullOrEmpty(objectName)) return null;
+
+        foreach (Transform transformInScene in FindObjectsOfType<Transform>(true))
         {
-            Debug.LogWarning("[TempBoxReceiver] sceneManager is not assigned.", this);
+            if (transformInScene.name == objectName)
+                return transformInScene.gameObject;
         }
+
+        return null;
     }
 }

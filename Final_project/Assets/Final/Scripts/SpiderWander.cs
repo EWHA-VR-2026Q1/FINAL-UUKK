@@ -77,6 +77,13 @@ public class SpiderWander : MonoBehaviour
 
     void Update()
     {
+        if (!IsAgentReady())
+        {
+            isMoving = false;
+            stateTimer = 0.2f;
+            return;
+        }
+
         stateTimer -= Time.deltaTime;
 
         if (isMoving)
@@ -95,6 +102,13 @@ public class SpiderWander : MonoBehaviour
 
     void EnterBurst()
     {
+        if (!IsAgentReady())
+        {
+            stateTimer = 0.2f;
+            isMoving = false;
+            return;
+        }
+
         Vector3 candidate = PickRandomPointInRadius(origin, wanderRadius);
         if (NavMesh.SamplePosition(candidate, out var hit, 1.0f, NavMesh.AllAreas))
         {
@@ -113,10 +127,19 @@ public class SpiderWander : MonoBehaviour
 
     void EnterPause()
     {
-        agent.isStopped = true;
+        if (IsAgentReady())
+        {
+            agent.isStopped = true;
+        }
+
         stateTimer = Random.Range(minPauseDuration, maxPauseDuration);
         twitchTimer = Random.Range(0.3f, twitchInterval);
         isMoving = false;
+    }
+
+    bool IsAgentReady()
+    {
+        return agent != null && agent.enabled && agent.isOnNavMesh;
     }
 
     void DoIdleTwitch()

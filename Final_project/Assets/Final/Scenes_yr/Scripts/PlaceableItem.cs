@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class PlaceableItem : MonoBehaviour
 {
-    [Header("¹èÄ¡ ¿Ï·á ÈÄ ³ªÅ¸³¯ ¿ÀºêÁ§Æ® (»çÀ°Àå ³»ºÎ ¹èÄ¡ ½Ã°¢È­)")]
-    public GameObject placedVisual;   // »çÀ°Àå ¾È¿¡ ¹Ì¸® ¸¸µé¾îµĞ ¹èÄ¡ ¿Ï·á ¿ÀºêÁ§Æ®
+    [Header("ë°°ì¹˜ ì™„ë£Œ ì‹œ ë‚˜íƒ€ë‚  ë¹„ì£¼ì–¼ (terrarium ì•ˆ ë¯¸ë¦¬ ë°°ì¹˜ëœ placedVisual)")]
+    public GameObject placedVisual;
 
-    [Header("¹èÄ¡ °¡´ÉÇÑ ¿µ¿ª ÅÂ±×")]
+    [Header("ë°°ì¹˜ ê°€ëŠ¥í•œ zone íƒœê·¸")]
     public string targetZoneTag = "TerrariumInside";
+
+    [Header("Debug")]
+    public bool verboseLog = true;
 
     private bool isPlaced = false;
 
@@ -14,23 +17,47 @@ public class PlaceableItem : MonoBehaviour
     {
         if (isPlaced) return;
 
+        if (verboseLog)
+            Debug.Log($"[PlaceableItem:{name}] OnTriggerEnter â†’ other={other.name}, tag={other.tag}", this);
+
         if (other.CompareTag(targetZoneTag))
-        {
-            PlaceItem();
-        }
+            PlaceItem(other);
     }
 
-    void PlaceItem()
+    void PlaceItem(Collider zone)
     {
         isPlaced = true;
 
-        // Áı¾î´Ù ³ÖÀº ¿ÀºêÁ§Æ® ¼û±â±â
+        if (verboseLog)
+            Debug.Log($"[PlaceableItem:{name}] PlaceItem fired in zone '{zone.name}'. " +
+                $"placedVisual = {(placedVisual != null ? placedVisual.name : "NULL")}", this);
+
+        // 1) ì´ë™ ê°€ëŠ¥í•œ ìê¸° ìì‹  ë¹„í™œì„±í™”
         gameObject.SetActive(false);
 
-        // »çÀ°Àå ³»ºÎ¿¡ ¹èÄ¡µÈ ½Ã°¢ ¿ÀºêÁ§Æ® È°¼ºÈ­
-        if (placedVisual != null)
-            placedVisual.SetActive(true);
+        // 2) placedVisual í™œì„±í™” + ë¶€ëª¨ ì²´ì¸ê¹Œì§€ í™•ì¸
+        if (placedVisual == null)
+        {
+            Debug.LogError($"[PlaceableItem:{name}] placedVisual is NULL! Inspectorì—ì„œ ì—°ê²° í™•ì¸.", this);
+            return;
+        }
 
-        Debug.Log(gameObject.name + " ¹èÄ¡ ¿Ï·á");
+        // ë¶€ëª¨ ì²´ì¸ ì¤‘ ë¹„í™œì„±ì´ ìˆìœ¼ë©´ placedVisual.SetActive(true) í•´ë„ ì•ˆ ë³´ì„
+        Transform t = placedVisual.transform;
+        while (t != null)
+        {
+            if (!t.gameObject.activeSelf && t.gameObject != placedVisual)
+            {
+                Debug.LogWarning($"[PlaceableItem:{name}] placedVisualì˜ ë¶€ëª¨ '{t.name}' ê°€ ë¹„í™œì„± ìƒíƒœ. " +
+                    "ì´ê±° ë•Œë¬¸ì— ì•ˆ ë³´ì¼ ìˆ˜ ìˆìŒ. ë¶€ëª¨ë¥¼ í™œì„±í™”í•´ì•¼ í•¨.", this);
+            }
+            t = t.parent;
+        }
+
+        placedVisual.SetActive(true);
+
+        if (verboseLog)
+            Debug.Log($"[PlaceableItem:{name}] placedVisual '{placedVisual.name}' activated. " +
+                $"activeSelf={placedVisual.activeSelf}, activeInHierarchy={placedVisual.activeInHierarchy}", this);
     }
 }

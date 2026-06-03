@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 /// 클리어 흐름:
 ///  1. 거미 -> TempBox 드래그   (TempBoxReceiver_OVR -> OnSpiderInBox)
 ///  2. 행주로 CleanTrigger 닦기  (Update 폴링 -> isCleaned)
-///  3. 토양/나무/이끼 배치 x3    (PlaceableItem -> OnDecorateItemPlaced)
-///  4. 위 3개 완료 -> TempBox OVR 레이 클릭  (TempBoxClickable_OVR -> OnTempBoxClicked)
+///  3. 토양/나무 배치 x2          (PlaceableItem -> OnDecorateItemPlaced)
+///  4. 위 2개 완료 -> TempBox OVR 레이 클릭  (TempBoxClickable_OVR -> OnTempBoxClicked)
 ///     -> ProgressManager.UnlockStage(nextStageNumber)
 /// </summary>
 public class Scene09_Manager : MonoBehaviour
@@ -36,6 +36,9 @@ public class Scene09_Manager : MonoBehaviour
     public PlaceableItem mossItem;
     public PlaceableItem soilItem;
 
+    [Header("Required Decoration Count")]
+    public int requiredDecorateCount = 2;
+
     [Header("임시 박스 클릭 - TempBox에 TempBoxClickable_OVR 부착 후 드래그")]
     public TempBoxClickable_OVR tempBoxClickable;
 
@@ -59,8 +62,10 @@ public class Scene09_Manager : MonoBehaviour
         subText.text  = "Put " + n + " in the temp box.";
 
         AddPlaceTracker(branchItem);
-        AddPlaceTracker(mossItem);
         AddPlaceTracker(soilItem);
+
+        if (requiredDecorateCount >= 3)
+            AddPlaceTracker(mossItem);
     }
 
     void Update()
@@ -93,9 +98,9 @@ public class Scene09_Manager : MonoBehaviour
     {
         if (currentStep != Step.DecorateTerrarium) return;
         decorateCount++;
-        subText.text = "Items placed: " + decorateCount + " / 3";
+        subText.text = "Items placed: " + decorateCount + " / " + requiredDecorateCount;
 
-        if (decorateCount >= 3)
+        if (decorateCount >= requiredDecorateCount)
             OnAllItemsPlaced();
     }
 
@@ -153,7 +158,7 @@ public class Scene09_Manager : MonoBehaviour
         {
             case Step.MoveSpiderToBox:   return "Put the spider in the temp box first!";
             case Step.CleanTerrarium:    return "Clean the terrarium with the rag!";
-            case Step.DecorateTerrarium: return "Place all items! (" + decorateCount + "/3)";
+            case Step.DecorateTerrarium: return "Place all items! (" + decorateCount + "/" + requiredDecorateCount + ")";
             default: return "";
         }
     }
